@@ -1,8 +1,8 @@
 // EmailJS configuration
 const emailConfig = {
-    serviceID: process.env.EMAILJS_SERVICE_ID,
-    templateID: process.env.EMAILJS_TEMPLATE_ID,
-    userID: process.env.EMAILJS_USER_ID,
+    serviceID: 'service_cazuime',
+    templateID: 'template_t36sydc',
+    userID: 'Tkv6hTnur3VwXlkTK',
 };
 
 // Function to send email using the recommended approach
