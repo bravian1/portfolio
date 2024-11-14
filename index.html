@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bravian Nyatoro - Full Stack Developer, Blockchain Innovator, and Creative Thinker">
+    <title>Bravian Nyatoro | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="js/email.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+</head>
+<body class="dark-mode">
+    <div class="torch-effect"></div>
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">BN</div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="code-symbols">
+            <span class="code-symbol">&lt;/&gt;</span>
+            <span class="code-symbol">{}</span>
+            <span class="code-symbol">()</span>
+            <span class="code-symbol">&lt;/&gt;</span>
+            <span class="code-symbol">=&gt;</span>
+            <span class="code-symbol">[]</span>
+            <span class="code-symbol">+</span>
+            <span class="code-symbol">*</span>
+            <span class="code-symbol">~</span>
+            <span class="code-symbol">%</span>
+            <span class="code-symbol">#</span>
+            <span class="code-symbol">@</span>
+            <span class="code-symbol">$</span>
+            <span class="code-symbol">:</span>
+            <span class="code-symbol">?</span>
+            <span class="code-symbol">&amp;&amp;</span>
+            <span class="code-symbol">||</span>
+            <span class="code-symbol">!==</span>
+            <span class="code-symbol">!==</span>
+            <span class="code-symbol">&lt;&lt;</span>
+            <span class="code-symbol">&gt;&gt;</span>
+            <span class="code-symbol">++</span>
+            <span class="code-symbol">--</span>
+            <span class="code-symbol">;</span>
+            <span class="code-symbol">!</span>
+        </div>
+        
+        <div class="hero-content">
+            <h1><span></span>Bravian Nyatoro</h1>
+            <div class="typewriter">
+                <span id="typing-text"></span>
+            </div>
+            <p class="subtitle">Crafting solutions for a more connected world</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="profile-image">
+                <img src="assets/me.png" alt="Bravian Nyatoro" />
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I'm <span class="highlight">Bravian Nyatoro</span>, a full-stack developer with a strong focus on crafting intuitive and impactful digital solutions.
+                </p>
+               
+                <p>
+                    Currently, I work as a <span class="highlight">Software Developer</span> at Zone 01 Kisumu, under the 01-edu platform, where we train to Recode the world with Kenyan talent.
+                </p>
+                <div class="tech-list">
+                    <span class="tech-item">JavaScript (ES6+)</span>
+                    <span class="tech-item">Golang</span>
+                    <span class="tech-item">React</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">Rust</span>
+                    <span class="tech-item">MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="experience-card">
+                <div class="date">April 2024 - Present</div>
+                <h3>Software Developer</h3>
+                <h4>Zone 01 Kisumu (01-edu Platform)</h4>
+                <p>Creating projects in Golang, Rust, and JavaScript, focusing on solutions that streamline processes, enhance accessibility, and improve learning experiences.</p>
+                <div class="tech-tags">
+                    <span>Golang</span>
+                    <span>Rust</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="date">2021 - Present</div>
+                <h3>Freelance Software Developer</h3>
+                <h4>Upwork / Remotask</h4>
+                <p>Worked on various projects including web development, backend services, and automation tasks for clients globally.</p>
+                <div class="tech-tags">
+                    <span>Python</span>
+                    <span>PHP</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+     
+            
+            <div class="experience-card">
+                <div class="date">2023</div>
+                <h3>Self-Taught Software Developer</h3>
+                <h4>Personal Development</h4>
+                <p>Started self-learning programming, focusing on Python as the first language, and gradually expanding knowledge to web development, Go, and blockchain technologies.</p>
+                <div class="tech-tags">
+                    <span>Python</span>
+                    <span>Go</span>
+                    <span>Blockchain</span>
+                </div>
+            </div>
+            
+         
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <!-- AfyaChain -->
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>AfyaChain</h3>
+                    <p>An EMR system leveraging blockchain to securely store and manage patient history.</p>
+                    <div class="tech-stack">
+                        <span>Go</span>
+                        <span>MySQL</span>
+                        <span>Blockchain</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://afyachain.co.ke" class="btn">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Team Shuffler</h3>
+                    <p>A platform for managing foosball leagues and tournaments making it easier for the competition officials to organize matches.</p>
+                    <div class="tech-stack">
+                        <span>Golang</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/bravian1/Team-shuffler.git" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        
+      
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Rock Paper Scissors</h3>
+                    <p>A modern implementation of the classic Rock Paper Scissors game with a beautiful UI, built using Go for the backend and HTML/CSS/JavaScript for the frontend.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Go</span>
+                        <span>Html</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn">View Demo</a>
+                        <a href="https://github.com/bravian1/rockpaperscissor.git" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        
+         
+         
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Let's Connect</h2>
+                <div class="header-line"></div>
+                <p class="contact-subtitle">Have an interesting project? I'm always open to new ideas!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <div class="form-decoration">
+                        <div class="decoration-circle"></div>
+                        <div class="decoration-line"></div>
+                    </div>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <div class="input-animation-wrapper">
+                                <input type="text" id="name" required placeholder=" ">
+                                <label for="name">Your Name</label>
+                                <div class="input-underline"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-animation-wrapper">
+                                <input type="email" id="email" required placeholder=" ">
+                                <label for="email">Your Email</label>
+                                <div class="input-underline"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-animation-wrapper">
+                                <textarea id="message" required placeholder=" "></textarea>
+                                <label for="message">Your Message</label>
+                                <div class="input-underline"></div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-content">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                    </svg>
+                                </span>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="social-links-container">
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" class="social-link github" aria-label="GitHub">
+                            <span class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </span>
+                            <span class="social-text">GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" class="social-link linkedin" aria-label="LinkedIn">
+                            <span class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </span>
+                            <span class="social-text">LinkedIn</span>
+                        </a>
+                        <a href="mailto:your.email@example.com" class="social-link email" aria-label="Email">
+                            <span class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <span class="social-text">Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Crafting a better web, one line of code at a time</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 
