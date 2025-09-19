@@ -196,7 +196,7 @@ export default function Footer() {
 
               {/* Contact Info */}
               <div className="space-y-2">
-                <p className="font-mono text-sm text-muted-foreground">Let's build something amazing together!</p>
+                <p className="font-mono text-sm text-muted-foreground">Let&apos;s build something amazing together!</p>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Coffee className="w-4 h-4 text-golden" />
                   <span className="font-mono">Always ready for a coffee chat</span>

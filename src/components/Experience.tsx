@@ -10,9 +10,8 @@ import {
   Briefcase,
   CheckCircle
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
-// Remove the Project interface since we're no longer using featured projects
+// Remove the Project interface since we&apos;re no longer using featured projects
 // 1. Define clear types for our consolidated data structure.
 
 interface Experience {

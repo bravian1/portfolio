@@ -1,12 +1,6 @@
 'use client'
 
-export default function GlobalError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string }
-  reset: () => void
-}) {
+export default function GlobalError({ reset }: { reset: () => void }) {
   return (
     <html>
       <body className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
@@ -20,7 +14,7 @@ export default function GlobalError({
             </p>
           </div>
           <button
-            onClick={() => reset?.() || window.location.reload()}
+            onClick={() => reset ? reset() : window.location.reload()}
             className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
           >
             Try again

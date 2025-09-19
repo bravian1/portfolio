@@ -17,9 +17,9 @@ const techStack = [
 
 const codeSnippets = [
   "func main() { fmt.Println(\"Hello, World!\") }",
-  "Route::get('/api/users', [UserController::class, 'index']);",
-  "const developer = 'Bravian Nyatoro';",
-  "SELECT * FROM opportunities WHERE status = 'open';",
+  "Route::get(&apos;/api/users&apos;, [UserController::class, &apos;index&apos;]);",
+  "const developer = &apos;Bravian Nyatoro&apos;;",
+  "SELECT * FROM opportunities WHERE status = &apos;open&apos;;",,
   "docker run -p 8080:8080 my-go-app",
   "interface Developer { skills: string[]; }"
 ];
@@ -38,6 +38,8 @@ export default function Hero() {
 
   useEffect(() => {
     const text = codeSnippets[currentCode];
+    if (!text) return;
+    
     let index = 0;
     setTypedText("");
     setIsTyping(true);
@@ -156,7 +158,7 @@ export default function Hero() {
                 size="lg"
               >
                 <Mail className="w-5 h-5" />
-                Let's Connect
+                Let&apos;s Connect
               </Button>
             </div>
 

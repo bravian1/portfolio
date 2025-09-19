@@ -22,7 +22,7 @@ export default function ContactForm() {
           </p>
         </div>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-          Ready to collaborate on your next project? Let's connect!
+          Ready to collaborate on your next project? Let&apos;s connect!
         </p>
       </div>
 
