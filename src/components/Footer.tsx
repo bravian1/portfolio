@@ -13,9 +13,9 @@ import {
   Code, 
   Coffee,
   ArrowUp,
-  Globe,
-  Video
+  Globe
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const [currentYear] = useState(new Date().getFullYear());
@@ -55,7 +55,15 @@ export default function Footer() {
       color: "hover:text-cyan-400 hover:bg-cyan-400/10"
     },
     {
-      icon: <Video className="w-5 h-5" />,
+      icon: (
+        <Image 
+          src="/tiktok.svg" 
+          alt="TikTok" 
+          width={20} 
+          height={20} 
+          className="w-5 h-5"
+        />
+      ),
       label: "TikTok",
       url: "https://www.tiktok.com/@brav0016",
       color: "hover:text-pink-400 hover:bg-pink-400/10"

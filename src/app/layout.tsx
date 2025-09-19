@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "Bravian Nyatoro - System Designer & Full-stack Developer",
   description: "System Designer and Full-stack Developer specializing in scalable backend systems with Go and Laravel. Building the future, one system at a time.",
   icons: {
-    icon: ['/pfp.jpg'],
-    shortcut: ['/pfp.jpg'],
-    apple: ['/pfp.jpg'],
+    icon: ['/pfp.png'],
+    shortcut: ['/pfp.png'],
+    apple: ['/pfp.png'],
   },
 };
 
