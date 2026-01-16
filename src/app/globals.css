@@ -6,223 +6,79 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  
-  --color-background: #16141C;
-  --color-foreground: #E7E4DE;
-  --color-muted: #3F1D50;
-  --color-muted-foreground: #a3a3a3;
-  --color-card: #1f1c24;
-  --color-card-foreground: #E7E4DE;
-  --color-border: #3F1D50;
-  --color-primary: #4FB3B3;
-  --color-primary-foreground: #16141C;
-  --color-accent: #EEAA11;
-  --color-accent-foreground: #16141C;
-  --color-secondary: #BB3381;
-  --color-secondary-foreground: #E7E4DE;
-  --color-tertiary: #3F1D50;
-  --color-tertiary-foreground: #E7E4DE;
-  --color-golden: #EEAA11;
-  --color-teal: #4FB3B3;
-  --color-magenta: #BB3381;
-  --color-purple: #3F1D50;
-  
-  --radius: 12px;
-  
+
+  /* Premium Obsidian & Gold Palette */
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+
+  --color-card: #18181b;
+  --color-card-foreground: #fafafa;
+
+  --color-border: #27272a;
+  --color-input: #27272a;
+
+  --color-primary: #fafafa;
+  --color-primary-foreground: #18181b;
+
+  --color-secondary: #27272a;
+  --color-secondary-foreground: #fafafa;
+
+  --color-accent: #fbbf24;
+  --color-accent-foreground: #18181b;
+
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #fafafa;
+
+  --radius: 0.5rem;
+
   --animate-fade-in: fade-in 0.6s ease-out;
   --animate-slide-up: slide-up 0.8s ease-out;
-  --animate-glow: glow 2s ease-in-out infinite alternate;
 }
 
 .dark {
-  --color-background: #E7E4DE;
-  --color-foreground: #16141C;
-  --color-muted: #d0ccc5;
-  --color-muted-foreground: #737373;
-  --color-card: #f5f2eb;
-  --color-card-foreground: #16141C;
-  --color-border: #c4c0b9;
-  --color-primary: #3F1D50;
-  --color-primary-foreground: #E7E4DE;
-  --color-accent: #BB3381;
-  --color-accent-foreground: #E7E4DE;
-  --color-secondary: #4FB3B3;
-  --color-secondary-foreground: #16141C;
-  --color-tertiary: #EEAA11;
-  --color-tertiary-foreground: #16141C;
-  --color-golden: #d4941a;
-  --color-teal: #3a8f8f;
-  --color-magenta: #9a2969;
-  --color-purple: #2f1540;
+  /* Ensure consistency in dark mode (default for this premium theme is dark) */
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+  --color-card: #18181b;
+  --color-card-foreground: #fafafa;
+  --color-border: #27272a;
+  --color-primary: #fafafa;
+  --color-primary-foreground: #18181b;
+  --color-accent: #fbbf24;
+  --color-accent-foreground: #18181b;
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
   }
-  
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
-  .gradient-text {
-    background: linear-gradient(135deg, var(--color-teal), var(--color-golden));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+
+  /* Typography enhancements for premium feel */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.025em;
+    font-weight: 600;
   }
-  
-  .gradient-text-alt {
-    background: linear-gradient(135deg, var(--color-magenta), var(--color-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .gradient-text-warm {
-    background: linear-gradient(135deg, var(--color-golden), var(--color-magenta));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .glow-effect {
-    filter: drop-shadow(0 0 20px var(--color-teal));
-  }
-  
-  .glow-effect-golden {
-    filter: drop-shadow(0 0 20px var(--color-golden));
-  }
-  
-  .glow-effect-magenta {
-    filter: drop-shadow(0 0 20px var(--color-magenta));
-  }
-  
-  .matrix-rain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.1;
-  }
-  
-  /* Additional floating shapes for more dynamic background */
-  .floating-shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  
-  .floating-shapes::before,
-  .floating-shapes::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.08;
-    animation: float 20s infinite linear;
-  }
-  
-  /* Add more dynamic shapes with pseudo-elements */
-  .hero-background::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 70%;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, var(--color-golden), transparent);
-    border-radius: 50%;
-    opacity: 0.06;
-    animation: float 25s infinite linear reverse;
-  }
-  
-  .hero-background::after {
-    content: '';
-    position: absolute;
-    bottom: 30%;
-    left: 20%;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, var(--color-magenta), transparent);
-    border-radius: 50%;
-    opacity: 0.06;
-    animation: float 30s infinite linear;
-  }
-  
-  .floating-shapes::before,
-  .floating-shapes::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: linear-gradient(45deg, var(--color-teal), var(--color-golden));
-    opacity: 0.1;
-    animation: float 20s infinite linear;
-  }
-  
-  .floating-shapes::before {
-    background: linear-gradient(135deg, var(--color-teal), var(--color-golden));
-  }
-  
-  .floating-shapes::after {
-    background: linear-gradient(135deg, var(--color-magenta), var(--color-purple));
-  }
-  
-  .floating-shapes::before {
-    width: 200px;
-    height: 200px;
-    top: 10%;
-    left: -10%;
-    background: linear-gradient(135deg, var(--color-teal), var(--color-golden));
-    animation-delay: 0s;
-  }
-  
-  .floating-shapes::after {
-    width: 150px;
-    height: 150px;
-    top: 60%;
-    right: -10%;
-    background: linear-gradient(135deg, var(--color-magenta), var(--color-purple));
-    animation-delay: -10s;
-  }
-  
-  @keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); }
-    100% { transform: translateY(-100vh) rotate(360deg); }
-  }
-  
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes slide-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes glow {
-    from { filter: drop-shadow(0 0 5px var(--color-teal)); }
-    to { filter: drop-shadow(0 0 25px var(--color-teal)); }
-  }
-  
-  @keyframes glow-golden {
-    from { filter: drop-shadow(0 0 5px var(--color-golden)); }
-    to { filter: drop-shadow(0 0 25px var(--color-golden)); }
-  }
-  
-  @keyframes glow-magenta {
-    from { filter: drop-shadow(0 0 5px var(--color-magenta)); }
-    to { filter: drop-shadow(0 0 25px var(--color-magenta)); }
-  }
-  
+
+  /* Revised Code Block - Clean & Minimal */
   .code-block {
     background: var(--color-card);
     border: 1px solid var(--color-border);
@@ -231,133 +87,79 @@
     position: relative;
     overflow: hidden;
   }
-  
+
+  /* Subtle indicator instead of scanline */
   .code-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-teal), transparent);
-    animation: scan 2s linear infinite;
+    display: none;
   }
-  
-  @keyframes scan {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-  
+
   .terminal-cursor::after {
     content: '|';
-    color: var(--color-teal);
+    color: var(--color-accent);
     animation: blink 1s infinite;
   }
-  
+
   @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+      opacity: 1;
+    }
+
+    51%,
+    100% {
+      opacity: 0;
+    }
   }
-  
-  .scroll-indicator {
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 50;
+
+  /* Animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  
-  .magnetic-hover {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  
-  .magnetic-hover:hover {
-    transform: scale(1.05);
+
+  /* Utility classes mapped to new variables */
+  .text-gold {
+    color: var(--color-accent);
   }
-  
-  .text-reveal {
-    background: linear-gradient(to right, var(--color-foreground) 50%, var(--color-muted-foreground) 50%);
-    background-size: 200% 100%;
-    background-position: 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: background-position 0.5s ease;
+
+  .bg-gold {
+    background-color: var(--color-accent);
   }
-  
-  .text-reveal:hover {
-    background-position: 0%;
+
+  .border-gold {
+    border-color: var(--color-accent);
   }
-  
-  /* New gradient backgrounds inspired by the color palette */
-  .gradient-bg-primary {
-    background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-golden) 100%);
+
+  /* Interactive Elements */
+  .hover-card {
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
   }
-  
-  .gradient-bg-secondary {
-    background: linear-gradient(135deg, var(--color-magenta) 0%, var(--color-purple) 100%);
+
+  .hover-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
   }
-  
-  .gradient-bg-warm {
-    background: linear-gradient(135deg, var(--color-golden) 0%, var(--color-magenta) 50%, var(--color-purple) 100%);
-  }
-  
-  .gradient-bg-cool {
-    background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-purple) 100%);
-  }
-  
-  .gradient-bg-alex {
-    background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-golden) 40%, var(--color-magenta) 100%);
-  }
-  
-  .gradient-border {
-    position: relative;
-    background: var(--color-card);
-  }
-  
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    background: linear-gradient(135deg, var(--color-teal), var(--color-golden), var(--color-magenta));
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-  }
-  
-  /* Custom color utilities for the new palette */
-  .text-teal-400 { color: var(--color-teal); }
-  .text-golden { color: var(--color-golden); }
-  .text-magenta { color: var(--color-magenta); }
-  .text-purple-400 { color: var(--color-purple); }
-  
-  .bg-teal-400 { background-color: var(--color-teal); }
-  .bg-golden { background-color: var(--color-golden); }
-  .bg-magenta { background-color: var(--color-magenta); }
-  .bg-purple-400 { background-color: var(--color-purple); }
-  
-  .border-teal-400\/30 { border-color: rgb(79 179 179 / 0.3); }
-  .border-golden\/30 { border-color: rgb(238 170 17 / 0.3); }
-  .border-magenta\/30 { border-color: rgb(187 51 129 / 0.3); }
-  .border-purple-400\/30 { border-color: rgb(63 29 80 / 0.3); }
-  
-  .bg-teal-400\/10 { background-color: rgb(79 179 179 / 0.1); }
-  .bg-golden\/10 { background-color: rgb(238 170 17 / 0.1); }
-  .bg-magenta\/10 { background-color: rgb(187 51 129 / 0.1); }
-  .bg-purple-400\/10 { background-color: rgb(63 29 80 / 0.1); }
-  
-  .hover\:bg-teal-400\/10:hover { background-color: rgb(79 179 179 / 0.1); }
-  .hover\:bg-golden\/10:hover { background-color: rgb(238 170 17 / 0.1); }
-  .hover\:bg-magenta\/10:hover { background-color: rgb(187 51 129 / 0.1); }
-  .hover\:bg-purple-400\/10:hover { background-color: rgb(63 29 80 / 0.1); }
-  
-  .hover\:border-teal-400:hover { border-color: var(--color-teal); }
-  .hover\:border-golden:hover { border-color: var(--color-golden); }
-  .hover\:border-magenta:hover { border-color: var(--color-magenta); }
-  .hover\:border-purple-400:hover { border-color: var(--color-purple); }
 }
 
 /* Hide Next.js error overlay portal */

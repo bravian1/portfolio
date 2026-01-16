@@ -2,15 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Mail, 
-  Heart, 
-  Terminal, 
-  Code, 
+
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  Heart,
+  Terminal,
+  Code,
   Coffee,
   ArrowUp,
   Globe
@@ -26,7 +26,7 @@ export default function Footer() {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -44,23 +44,23 @@ export default function Footer() {
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
-      label: "LinkedIn", 
+      label: "LinkedIn",
       url: "https://www.linkedin.com/in/bravian-nyatoro-0576021b0/",
       color: "hover:text-blue-400 hover:bg-blue-400/10"
     },
     {
       icon: <Twitter className="w-5 h-5" />,
       label: "Twitter",
-      url: "https://twitter.com/bravke1", 
-      color: "hover:text-cyan-400 hover:bg-cyan-400/10"
+      url: "https://twitter.com/bravke1",
+      color: "hover:text-sky-400 hover:bg-sky-400/10"
     },
     {
       icon: (
-        <Image 
-          src="/tiktok.svg" 
-          alt="TikTok" 
-          width={20} 
-          height={20} 
+        <Image
+          src="/tiktok.svg"
+          alt="TikTok"
+          width={20}
+          height={20}
           className="w-5 h-5"
         />
       ),
@@ -72,84 +72,75 @@ export default function Footer() {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
       url: "mailto:bravian@example.com",
-      color: "hover:text-teal-400 hover:bg-teal-400/10"
+      color: "hover:text-accent hover:bg-accent/10"
     }
   ];
 
   const quickLinks = [
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" }
+    { label: "Experience", href: "#experience" }
   ];
 
   return (
     <>
-      <footer className="relative bg-card/30 border-t border-primary/20 mt-20">
-        {/* Floating Shapes Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-accent/5 rounded-full blur-3xl"></div>
-        </div>
-
+      <footer className="relative bg-zinc-950 border-t border-zinc-900 mt-20">
         <div className="container mx-auto px-6 lg:px-12 xl:px-16 py-16 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
             {/* Brand & Description */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-8">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                      <Terminal className="w-5 h-5 text-background" />
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                      <Terminal className="w-5 h-5 text-black" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold gradient-text font-mono">bravian.dev</h3>
-                    <p className="text-xs text-muted-foreground font-mono">System Designer & Full-stack Developer</p>
+                    <h3 className="text-xl font-bold text-white font-mono tracking-tight">bravian.dev</h3>
+                    <p className="text-xs text-zinc-500 font-mono">System Designer & Full-stack Developer</p>
                   </div>
                 </div>
-                
-                <p className="text-muted-foreground leading-relaxed max-w-md">
-                  Designing scalable systems and crafting robust backend solutions. 
-                  Building the future with <span className="text-teal-400 font-mono">Go</span>, 
-                  <span className="text-golden font-mono"> Laravel</span>, and modern web technologies.
+
+                <p className="text-zinc-400 leading-relaxed max-w-md font-light">
+                  Designing scalable systems and crafting robust solutions.
+                  Building the future with <span className="text-white font-medium">Go</span>,
+                  <span className="text-white font-medium"> Laravel</span>, and modern technologies.
                 </p>
               </div>
 
               {/* Terminal Status */}
-                <div className="bg-card/50 border border-teal-400/20 rounded-lg p-4 font-mono text-sm">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    </div>
-                    <span className="text-muted-foreground">~/status</span>
+              <div className="bg-black border border-zinc-800 rounded-lg p-5 font-mono text-sm shadow-sm">
+                <div className="flex items-center gap-2 mb-3 pb-3 border-b border-zinc-900">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 bg-zinc-700 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-zinc-700 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-zinc-700 rounded-full"></div>
                   </div>
-                  <div className="space-y-1 text-xs">
-                    <div className="text-green-400">
-                      <span className="text-teal-400">$</span> status --check
-                    </div>
-                    <div className="text-muted-foreground">
-                      → Available for hire: <span className="text-green-400">true</span>
-                    </div>
-                    <div className="text-muted-foreground">
-                      → Response time: <span className="text-teal-400">&lt; 24h</span>
-                    </div>
-                    <div className="text-muted-foreground terminal-cursor">
-                      → Ready to design amazing systems
-                    </div>
+                  <span className="text-zinc-600 text-xs ml-auto">status check</span>
+                </div>
+                <div className="space-y-2 text-xs">
+                  <div className="text-zinc-300">
+                    <span className="text-accent">$</span> status --check
+                  </div>
+                  <div className="text-zinc-500 pl-2">
+                    Available for hire: <span className="text-emerald-500">true</span>
+                  </div>
+                  <div className="text-zinc-500 pl-2">
+                    Response time: <span className="text-zinc-300">&lt; 24h</span>
+                  </div>
+                  <div className="text-zinc-500 pl-2 flex items-center gap-1">
+                    <span className="animate-pulse w-1.5 h-3 bg-accent block"></span>
                   </div>
                 </div>
+              </div>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-6">
-              <h4 className="font-mono font-semibold text-foreground flex items-center gap-2">
-                <Code className="w-4 h-4 text-teal-400" />
+              <h4 className="font-mono font-semibold text-white flex items-center gap-2">
+                <Code className="w-4 h-4 text-zinc-500" />
                 Navigation
               </h4>
               <nav className="space-y-3">
@@ -162,9 +153,9 @@ export default function Footer() {
                         element.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="block text-muted-foreground hover:text-teal-400 font-mono text-sm transition-colors duration-300 hover:translate-x-1 transform transition-transform"
+                    className="block text-zinc-500 hover:text-white font-mono text-sm transition-all duration-300 hover:translate-x-1"
                   >
-                    <span className="text-teal-400 opacity-60">→</span> {link.label}
+                    <span className="text-accent opacity-0 hover:opacity-100 transition-opacity mr-2">/</span> {link.label}
                   </button>
                 ))}
               </nav>
@@ -172,11 +163,11 @@ export default function Footer() {
 
             {/* Connect */}
             <div className="space-y-6">
-              <h4 className="font-mono font-semibold text-foreground flex items-center gap-2">
-                <Globe className="w-4 h-4 text-golden" />
+              <h4 className="font-mono font-semibold text-white flex items-center gap-2">
+                <Globe className="w-4 h-4 text-zinc-500" />
                 Connect
               </h4>
-              
+
               {/* Social Links */}
               <div className="flex flex-wrap gap-2">
                 {socialLinks.map((social) => (
@@ -185,48 +176,45 @@ export default function Footer() {
                     variant="ghost"
                     size="sm"
                     onClick={() => window.open(social.url, '_blank')}
-                    className={`magnetic-hover w-10 h-10 p-0 border border-teal-400/20 ${social.color} transition-all duration-300 group`}
+                    className={`w-10 h-10 p-0 border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 ${social.color} transition-all duration-300`}
                   >
-                    <span className="group-hover:scale-110 transition-transform duration-300">
-                      {social.icon}
-                    </span>
+                    {social.icon}
                   </Button>
                 ))}
               </div>
 
               {/* Contact Info */}
               <div className="space-y-2">
-                <p className="font-mono text-sm text-muted-foreground">Let&apos;s build something amazing together!</p>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Coffee className="w-4 h-4 text-golden" />
-                  <span className="font-mono">Always ready for a coffee chat</span>
+                <p className="font-mono text-sm text-zinc-500">Let&apos;s build something amazing.</p>
+                <div className="flex items-center gap-2 text-sm text-zinc-500">
+                  <Coffee className="w-4 h-4 text-zinc-600" />
+                  <span className="font-mono text-xs">Always ready to chat</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-12 pt-8 border-t border-primary/20">
+          <div className="mt-16 pt-8 border-t border-zinc-900">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              
+
               {/* Copyright */}
-              <div className="flex items-center gap-2 text-sm text-muted-foreground font-mono">
+              <div className="flex items-center gap-2 text-xs text-zinc-600 font-mono">
                 <span>© {currentYear} Bravian Nyatoro</span>
-                <span className="text-teal-400">•</span>
+                <span className="text-zinc-800">•</span>
                 <span className="flex items-center gap-1">
-                  Made with <Heart className="w-3 h-3 text-red-500 animate-pulse" /> and lots of 
-                  <Coffee className="w-3 h-3 text-amber-500" />
+                  Made with <Heart className="w-3 h-3 text-red-900/50" />
                 </span>
               </div>
 
               {/* Tech Stack Credit */}
-              <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
+              <div className="flex items-center gap-3 text-xs text-zinc-600 font-mono">
                 <span>Built with</span>
                 <div className="flex gap-2">
                   {["Next.js", "TypeScript", "Tailwind"].map((tech) => (
-                    <Badge key={tech} variant="outline" className="text-xs bg-golden/10 border-golden/30">
+                    <span key={tech} className="px-2 py-1 bg-zinc-900 rounded border border-zinc-800/50">
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -238,9 +226,9 @@ export default function Footer() {
         {showScrollTop && (
           <Button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-teal-400 to-golden text-black hover:from-teal-500 hover:to-yellow-500 glow-effect animate-fade-in z-50 group"
+            className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-white text-black hover:bg-zinc-200 shadow-xl transition-all duration-500 hover:-translate-y-1 z-50"
           >
-            <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform duration-300" />
+            <ArrowUp className="w-5 h-5" />
           </Button>
         )}
       </footer>
