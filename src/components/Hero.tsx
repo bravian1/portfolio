@@ -28,8 +28,8 @@ export default function Hero() {
                 >
                     Fullstack Dev & <br />
                     AI Engineer helping <br />
-                    bring your <span className="italic-serif text-foreground/90">ideas</span> <br />
-                    to life.
+                    bring your ideas <br />
+                    to <span className="italic-serif text-foreground/90">life.</span>
                 </motion.h1>
 
                 <motion.div
