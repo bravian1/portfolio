@@ -1,34 +1,21 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
+import SecondaryProjects from '@/components/SecondaryProjects'
 import Experience from '@/components/Experience'
 import Footer from '@/components/Footer'
 import { Toaster } from 'sonner'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      <main>
-        {/* Hero Section */}
-        <section id="about" className="pt-8">
-          <Hero />
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="py-16">
-          <div className="container mx-auto px-6 lg:px-12 xl:px-16">
-            <Projects />
-          </div>
-        </section>
-
-        {/* Experience Section */}
-        <section id="experience" className="py-16">
-          <div className="container mx-auto px-6 lg:px-12 xl:px-16">
-            <Experience />
-          </div>
-        </section>
+      <main className="container mx-auto px-6 lg:px-12 xl:px-16 overflow-hidden">
+        <Hero />
+        <Projects />
+        <SecondaryProjects />
+        <Experience />
       </main>
 
       <Footer />
