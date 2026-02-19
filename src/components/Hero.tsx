@@ -29,7 +29,30 @@ export default function Hero() {
                     Fullstack Dev & <br />
                     AI Engineer helping <br />
                     bring your ideas <br />
-                    to <span className="italic-serif text-foreground/90">life.</span>
+                    to <span className="relative inline-block">
+                        <span className="italic-serif text-foreground/90 relative z-10">life.</span>
+                        {/* AI Sparkles */}
+                        <motion.span
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: [0, 1.2, 1], opacity: [0, 1, 0.8] }}
+                            transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatDelay: 2 }}
+                            className="absolute -top-4 -right-2 text-accent pointer-events-none"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                            </svg>
+                        </motion.span>
+                        <motion.span
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: [0, 1, 0.8], opacity: [0, 1, 0.6] }}
+                            transition={{ duration: 0.6, delay: 1.2, repeat: Infinity, repeatDelay: 2.5 }}
+                            className="absolute -bottom-2 -left-4 text-accent/60 pointer-events-none scale-75"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+                            </svg>
+                        </motion.span>
+                    </span>
                 </motion.h1>
 
                 <motion.div
