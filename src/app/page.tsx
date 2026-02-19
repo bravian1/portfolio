@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
 import SecondaryProjects from '@/components/SecondaryProjects'
-import Experience from '@/components/Experience'
+import About from '@/components/About'
 import Footer from '@/components/Footer'
 import { Toaster } from 'sonner'
 
@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <Projects />
         <SecondaryProjects />
-        <Experience />
+        <About />
       </main>
 
       <Footer />
