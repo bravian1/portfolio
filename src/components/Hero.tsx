@@ -26,9 +26,10 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.1 }}
                     className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight max-w-5xl mb-8 md:mb-12"
                 >
-                    AI Engineer <br />
-                    helping your <span className="italic-serif text-foreground/90">ideas</span> <br />
-                    scale and <span className="italic-serif text-foreground/90">thrive.</span>
+                    Fullstack Dev & <br />
+                    AI Engineer helping <br />
+                    bring your <span className="italic-serif text-foreground/90">ideas</span> <br />
+                    to life.
                 </motion.h1>
 
                 <motion.div
