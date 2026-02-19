@@ -5,6 +5,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import AutoScroll from "embla-carousel-auto-scroll";
 
 interface SecondaryProject {
     title: string;
@@ -37,21 +38,14 @@ const secondaryProjects: SecondaryProject[] = [
         category: "AI Infrastructure",
         color: "bg-purple-500/10",
     },
+
     {
-        title: "Voice Diary",
-        description: "AI-integrated voice journaling app with sentiment analysis and summarization.",
-        url: "https://github.com/bravian1/voice-diary",
-        category: "Machine Learning",
-        image: "/voicediary.png",
-        color: "bg-pink-500/10",
-    },
-    {
-        title: "Getsippar",
-        description: "Advanced data filtering and organization tool for complex datasets.",
-        url: "https://github.com/bravian1/getsippar",
-        category: "Data Engineering",
+        title: "Sippar",
+        description: "A powerful platform to manage organizational petty cash and optimize approval workflows with ease.",
+        url: "https://getsippar.com",
+        category: "Fintech",
         image: "/getsippar.png",
-        color: "bg-amber-500/10",
+        color: "bg-emerald-500/10",
     },
 ];
 
@@ -76,6 +70,13 @@ export default function SecondaryProjects() {
                         align: "start",
                         loop: true,
                     }}
+                    plugins={[
+                        AutoScroll({
+                            speed: 1,
+                            stopOnInteraction: false,
+                            stopOnMouseEnter: true,
+                        })
+                    ]}
                     className="w-full"
                 >
                     <CarouselContent className="-ml-4 md:-ml-8">
