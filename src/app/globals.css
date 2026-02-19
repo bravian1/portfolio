@@ -1,45 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Premium Obsidian & Gold Palette */
-  --color-background: #09090b;
-  --color-foreground: #fafafa;
+  /* Kedavra Inspiration Palette */
+  --color-background: #fafafa;
+  --color-foreground: #242424;
 
-  --color-muted: #27272a;
-  --color-muted-foreground: #a1a1aa;
+  --color-muted: #e9e9e9;
+  --color-muted-foreground: #71717a;
 
-  --color-card: #18181b;
-  --color-card-foreground: #fafafa;
+  --color-card: #ffffff;
+  --color-card-foreground: #242424;
 
-  --color-border: #27272a;
-  --color-input: #27272a;
+  --color-border: #e9e9e9;
+  --color-input: #e9e9e9;
 
-  --color-primary: #fafafa;
-  --color-primary-foreground: #18181b;
+  --color-primary: #242424;
+  --color-primary-foreground: #fafafa;
 
-  --color-secondary: #27272a;
-  --color-secondary-foreground: #fafafa;
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #18181b;
 
-  --color-accent: #fbbf24;
-  --color-accent-foreground: #18181b;
+  --color-accent: #75fb4c;
+  --color-accent-foreground: #242424;
 
-  --color-destructive: #7f1d1d;
+  --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 
   --animate-fade-in: fade-in 0.6s ease-out;
   --animate-slide-up: slide-up 0.8s ease-out;
 }
 
 .dark {
-  /* Ensure consistency in dark mode (default for this premium theme is dark) */
   --color-background: #09090b;
   --color-foreground: #fafafa;
   --color-muted: #27272a;
@@ -49,7 +49,7 @@
   --color-border: #27272a;
   --color-primary: #fafafa;
   --color-primary-foreground: #18181b;
-  --color-accent: #fbbf24;
+  --color-accent: #75fb4c;
   --color-accent-foreground: #18181b;
 }
 
@@ -67,49 +67,20 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Typography enhancements for premium feel */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    letter-spacing: -0.025em;
-    font-weight: 600;
+    letter-spacing: -0.04em;
+    font-weight: 700;
   }
 
-  /* Revised Code Block - Clean & Minimal */
-  .code-block {
-    background: var(--color-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    font-family: var(--font-mono);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Subtle indicator instead of scanline */
-  .code-block::before {
-    display: none;
-  }
-
-  .terminal-cursor::after {
-    content: '|';
-    color: var(--color-accent);
-    animation: blink 1s infinite;
-  }
-
-  @keyframes blink {
-
-    0%,
-    50% {
-      opacity: 1;
-    }
-
-    51%,
-    100% {
-      opacity: 0;
-    }
+  .italic-serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
   }
 
   /* Animations */
@@ -137,32 +108,34 @@
     }
   }
 
-  /* Utility classes mapped to new variables */
-  .text-gold {
-    color: var(--color-accent);
-  }
-
-  .bg-gold {
-    background-color: var(--color-accent);
-  }
-
-  .border-gold {
-    border-color: var(--color-accent);
-  }
-
   /* Interactive Elements */
   .hover-card {
-    transition: all 0.3s ease;
-    border: 1px solid var(--color-border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hover-card:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
   }
 }
 
-/* Hide Next.js error overlay portal */
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
 nextjs-portal {
   display: none !important;
 }
