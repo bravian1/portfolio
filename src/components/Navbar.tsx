@@ -28,7 +28,7 @@ export default function Navbar() {
     <header className="fixed top-0 w-full z-50">
       {/* Ticker Bar */}
       <div className="bg-foreground text-background py-2 text-xs font-bold uppercase tracking-widest relative z-[60]">
-        <Marquee speed={40} gradient={false}>
+        <Marquee speed={30} gradient={false}>
           <span className="mx-8">Now accepting projects</span>
           <span className="mx-8">Available for hire</span>
           <span className="mx-8">Now accepting projects</span>
