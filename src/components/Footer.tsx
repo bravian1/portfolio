@@ -14,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="pt-24 pb-12">
+    <footer id="contact" className="pt-24 pb-12">
       <div className="container mx-auto px-6 lg:px-12 xl:px-16 text-center lg:text-left">
         {/* Large CTA Section */}
         <div className="mb-32">

@@ -1,11 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import dynamic from 'next/dynamic';
+
+const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), {
+    ssr: false
+});
 
 export default function About() {
+    const [playheadKey, setPlayheadKey] = useState(0);
+
     return (
-        <section id="about-me" className="py-24 border-t border-foreground/5">
+        <section id="about" className="py-24 border-t border-foreground/5">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
                 {/* Image Section */}
                 <motion.div
@@ -73,6 +81,27 @@ export default function About() {
                             <span className="px-6 py-2 rounded-full bg-foreground/5 border border-foreground/10 text-sm font-bold uppercase tracking-widest">
                                 Zone 01 Alumni
                             </span>
+                        </div>
+                        <div className="pt-8 flex justify-center lg:justify-start">
+                            <div
+                                className="relative w-full max-w-[350px] sm:max-w-[500px] h-48 sm:h-64 overflow-visible cursor-pointer"
+                                onClick={() => setPlayheadKey(prev => prev + 1)}
+                                title="Click to replay signature"
+                            >
+                                <Penflow
+                                    text="Bravian Nyatoro"
+                                    fontUrl="/fonts/BrittanySignature.ttf"
+                                    size={58}
+                                    speed={1.2}
+                                    quality="balanced"
+                                    brushScale={0.072}
+                                    seed="wordmark"
+                                    animate
+                                    incremental={false}
+                                    lineHeight={2.0}
+                                    playheadKey={playheadKey}
+                                />
+                            </div>
                         </div>
                     </motion.div>
                 </div>

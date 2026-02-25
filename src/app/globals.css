@@ -54,6 +54,14 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-margin-top: 100px;
+  }
+
   * {
     border-color: var(--color-border);
   }
