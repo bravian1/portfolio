@@ -17,7 +17,7 @@ const projects: readonly Project[] = [
     {
         name: "Fuel Calc",
         description: "A specialized performance calculator for automotive enthusiasts and engineers. Precision modeling for fuel consumption and engine efficiency.",
-        link: "https://fuel-bravian11048-6tzwyf5o.leapcell.dev",
+        link: "https://fuelcalc.xyz",
         category: "Performance Tool",
         year: "2024",
         image: "/fuelcalc.png"
