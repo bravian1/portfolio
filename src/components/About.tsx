@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 
@@ -11,6 +11,8 @@ const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), 
 
 export default function About() {
     const [playheadKey, setPlayheadKey] = useState(0);
+    const signatureRef = useRef(null);
+    const isSignatureInView = useInView(signatureRef, { once: true, margin: "-100px" });
 
     return (
         <section id="about" className="py-24 border-t border-foreground/5">
@@ -71,36 +73,43 @@ export default function About() {
                             Lately, I’ve leaned into <span className="text-foreground font-bold">AI integrations</span>, focusing on how large-scale models can be engineered into robust products. It’s about using AI as a technical lever to solve complex problems that traditional code can’t always reach. By architecting these intelligent engines into the stack, I’m able to build software that feels surprisingly intuitive and powerful—bringing a legitimate sense of magic to the user through smart engineering.
                         </p>
 
-                        <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
-                            <span className="px-6 py-2 rounded-full bg-foreground/5 border border-foreground/10 text-sm font-bold uppercase tracking-widest">
-                                4+ Years Exp
-                            </span>
-                            <span className="px-6 py-2 rounded-full bg-foreground/5 border border-foreground/10 text-sm font-bold uppercase tracking-widest text-accent">
-                                AI Integrated
-                            </span>
-                            <span className="px-6 py-2 rounded-full bg-foreground/5 border border-foreground/10 text-sm font-bold uppercase tracking-widest">
-                                Zone 01 Alumni
-                            </span>
+                        <div className="pt-4 flex flex-col items-center lg:items-start gap-4 mx-auto lg:mx-0">
+                            <div className="flex justify-center lg:justify-start gap-3 sm:gap-4 w-full">
+                                <span className="w-fit whitespace-nowrap px-5 py-2.5 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-[11px] sm:text-[15px] font-bold uppercase tracking-widest flex-shrink-0">
+                                    4+ Years Exp
+                                </span>
+                                <span className="w-fit whitespace-nowrap px-5 py-2.5 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-[11px] sm:text-[15px] font-bold uppercase tracking-widest text-accent flex-shrink-0">
+                                    AI Integrated
+                                </span>
+                            </div>
+                            <div className="flex justify-center lg:justify-start w-full">
+                                <span className="w-fit whitespace-nowrap px-5 py-2.5 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-[11px] sm:text-[15px] font-bold uppercase tracking-widest flex-shrink-0">
+                                    Zone 01 Alumni
+                                </span>
+                            </div>
                         </div>
                         <div className="pt-8 flex justify-center lg:justify-start">
                             <div
+                                ref={signatureRef}
                                 className="relative w-full max-w-[350px] sm:max-w-[500px] h-48 sm:h-64 overflow-visible cursor-pointer"
                                 onClick={() => setPlayheadKey(prev => prev + 1)}
                                 title="Click to replay signature"
                             >
-                                <Penflow
-                                    text="Bravian Nyatoro"
-                                    fontUrl="/fonts/BrittanySignature.ttf"
-                                    size={58}
-                                    speed={1.2}
-                                    quality="balanced"
-                                    brushScale={0.072}
-                                    seed="wordmark"
-                                    animate
-                                    incremental={false}
-                                    lineHeight={2.0}
-                                    playheadKey={playheadKey}
-                                />
+                                {isSignatureInView && (
+                                    <Penflow
+                                        text="Bravian Nyatoro"
+                                        fontUrl="/fonts/BrittanySignature.ttf"
+                                        size={58}
+                                        speed={1.2}
+                                        quality="balanced"
+                                        brushScale={0.072}
+                                        seed="wordmark"
+                                        animate
+                                        incremental={false}
+                                        lineHeight={2.0}
+                                        playheadKey={playheadKey}
+                                    />
+                                )}
                             </div>
                         </div>
                     </motion.div>
