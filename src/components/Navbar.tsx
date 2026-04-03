@@ -1,22 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { motion, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [tickerVisible, setTickerVisible] = useState(true);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 20);
+    setTickerVisible(latest <= 20);
+  });
 
   const navLinks = [
     { href: "#projects", label: "Works" },
@@ -27,18 +25,28 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full z-50">
       {/* Ticker Bar */}
-      <div className="bg-foreground text-background py-2 text-xs font-bold uppercase tracking-widest relative z-[60]">
-        <Marquee speed={30} gradient={false}>
-          <span className="mx-8">Now accepting projects</span>
-          <span className="mx-8">Available for hire</span>
-          <span className="mx-8">Now accepting projects</span>
-          <span className="mx-8">Available for hire</span>
-          <span className="mx-8">Now accepting projects</span>
-          <span className="mx-8">Available for hire</span>
-          <span className="mx-8">Now accepting projects</span>
-          <span className="mx-8">Available for hire</span>
-        </Marquee>
-      </div>
+      <motion.div
+        initial={false}
+        animate={{
+          height: tickerVisible ? "auto" : 0,
+          opacity: tickerVisible ? 1 : 0,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="bg-foreground text-background text-xs font-bold uppercase tracking-widest relative z-[60] overflow-hidden"
+      >
+        <div className="py-2">
+          <Marquee speed={30} gradient={false}>
+            <span className="mx-8">Now accepting projects</span>
+            <span className="mx-8">Available for hire</span>
+            <span className="mx-8">Now accepting projects</span>
+            <span className="mx-8">Available for hire</span>
+            <span className="mx-8">Now accepting projects</span>
+            <span className="mx-8">Available for hire</span>
+            <span className="mx-8">Now accepting projects</span>
+            <span className="mx-8">Available for hire</span>
+          </Marquee>
+        </div>
+      </motion.div>
 
       {/* Main Navbar */}
       <nav className={`transition-all duration-300 relative z-[60] ${isScrolled || isMenuOpen ? "bg-background/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"}`}>
