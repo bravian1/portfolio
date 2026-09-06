@@ -2,6 +2,8 @@
 
 > Fullstack Developer & AI Engineer / System Designer
 
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.2-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat&logo=react)](https://react.dev/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
@@ -27,8 +29,10 @@ A modern, high-performance personal portfolio showcasing full-stack development,
 ## 🚀 Tech Stack
 
 ### Frontend & Core
+- **Framework**: Next.js 16.1.2 with App Router & Turbopack
 - **Framework**: Next.js 16.3.4 with App Router & Turbopack
 - **Language**: TypeScript 5
+- **UI Library**: React 19.2.3
 - **UI Library**: React 19.2.8
 - **Styling**: Tailwind CSS v4 (`@tailwindcss/postcss`)
 - **Animation & Motion**: Framer Motion 12, Embla Carousel (`embla-carousel-auto-scroll`), Penflow
@@ -120,7 +124,7 @@ npm run start
 - **[WebMaker Agency](https://webmaker-chi.vercel.app)** - Modern creative web agency with high-conversion landing pages
 - **[PassAfrika](https://passafrika.xyz)** - Secure blockchain event ticketing platform
 - **[Medicare Hospital](https://hospital-portfolio-six.vercel.app)** - Comprehensive healthcare scheduling and patient care portal
-- **[Sippar](https://getsippar.com)** - Organizational petty cash management and workflow optimization platform
+- **[Baobab POS](https://baobab-pos.co.ke)** - Offline-first Point of Sale and inventory platform for African SMEs
 - **[Bet Agent](https://github.com/bravian1/bet-agent)** - AI-powered sports betting analysis and automation
 - **[Textblitz](https://github.com/bravian1/Textblitz)** - High-performance text processing and analysis tool
 - **[Gemini CLI Server](https://github.com/bravian1/gemini_cli_server)** - Local server for interacting with Google Gemini AI models

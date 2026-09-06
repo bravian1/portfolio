@@ -40,11 +40,11 @@ const secondaryProjects: SecondaryProject[] = [
     },
 
     {
-        title: "Sippar",
-        description: "A powerful platform to manage organizational petty cash and optimize approval workflows with ease.",
-        url: "https://getsippar.com",
-        category: "Fintech",
-        image: "/getsippar.png",
+        title: "Baobab POS",
+        description: "An offline-first Point of Sale for African SMEs. Record sales, track inventory, and sync automatically.",
+        url: "https://baobab-pos.co.ke",
+        category: "Fintech / POS",
+        image: "/baobab.png",
         color: "bg-emerald-500/10",
     },
 ];
