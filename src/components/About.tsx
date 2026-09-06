@@ -16,21 +16,21 @@ export default function About() {
 
     return (
         <section id="about" className="py-24 border-t border-foreground/5">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-                {/* Image Section */}
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
+                {/* Image Section - aligned to the start of the first paragraph */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative group"
+                    className="relative group shrink-0 mx-auto lg:mx-0 lg:mt-[5.25rem]"
                 >
                     <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-[400px] lg:h-[500px] overflow-hidden rounded-full lg:rounded-[2.5rem] border-4 border-accent/20 lg:border-none shadow-2xl">
                         <Image
-                            src="/me.jpg"
+                            src="/newme.png"
                             alt="Bravian Nyatoro"
                             fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover object-top transition-transform duration-700 group-hover:scale-105 origin-top"
                             priority
                         />
                         <div className="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-500" />

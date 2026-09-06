@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div className="text-sm font-bold uppercase tracking-widest text-foreground/40">
-            Based in Kisumu, Kenya
+            Based in Nairobi, Kenya • Available Remotely
           </div>
         </div>
       </div>

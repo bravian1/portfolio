@@ -124,7 +124,7 @@ export default function Navbar() {
                       className="bg-foreground/5 p-6 flex gap-6 text-xs font-bold uppercase tracking-widest text-foreground/60 w-full justify-between sm:justify-start"
                     >
                       <a href="https://github.com/bravian1" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Github</a>
-                      <a href="https://linkedin.com/in/bravian-nyatoro-0576021b0/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-all -translate-y-0.5 text-foreground/90 font-extrabold">LinkedIn</a>
+                      <a href="https://www.linkedin.com/in/nyatorobravian/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-all -translate-y-0.5 text-foreground/90 font-extrabold">LinkedIn</a>
                       <a href="https://twitter.com/bravke1" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Twitter</a>
                     </motion.div>
                   </motion.div>

@@ -21,10 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/jpeg" href="/pfp.png" />
+        <link rel="icon" type="image/png" href="/pfp.png" />
         <link rel="apple-touch-icon" href="/pfp.png" />
         <link rel="shortcut icon" href="/pfp.png" />
-        <meta name="theme-color" content="#4FB3B3" />
+        <meta name="theme-color" content="#fafafa" />
       </head>
       <body className="antialiased">
         {children}

@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
     return (
         <section className="relative min-h-[75vh] md:min-h-[85vh] flex flex-col items-start justify-center pt-32 pb-12 md:pt-20 md:pb-20">
-            <div className="container mx-auto px-6 lg:px-12 xl:px-16">
+            <div className="w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -16,7 +16,7 @@ export default function Hero() {
                     className="space-y-4 mb-4 md:mb-8"
                 >
                     <span className="text-sm font-medium tracking-wider uppercase text-foreground/60">
-                        Based in Kisumu, Kenya
+                        Based in Nairobi, Kenya • Available Remotely
                     </span>
                 </motion.div>
 

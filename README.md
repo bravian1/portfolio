@@ -1,53 +1,52 @@
 # Bravian Nyatoro - Portfolio
 
-> System Designer & Full-stack Developer specializing in scalable backend systems
+> Fullstack Developer & AI Engineer / System Designer
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.3.5-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.2-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0+-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat&logo=vercel)](https://vercel.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0+-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat&logo=vercel)](https://vercel.com/)
 
 ## 🎯 Overview
 
-A modern, high-performance portfolio website showcasing my expertise in system design and full-stack development. Built with Next.js 15 and featuring a vibrant custom color scheme, interactive animations, and responsive design.
+A modern, high-performance personal portfolio showcasing full-stack development, AI integrations, and scalable systems engineering. Designed with an editorial aesthetic, fluid micro-interactions, responsive typography, and dynamic handwriting animations.
 
 ### 🌟 Key Features
 
-- **Modern Tech Stack**: Next.js 15 with App Router, TypeScript, and Tailwind CSS
-- **Custom Color Scheme**: Vibrant teal, golden, and magenta palette with dark theme
-- **Interactive Animations**: Powered by Framer Motion and custom CSS animations
-- **Matrix Rain Effect**: Animated background with Japanese characters
-- **Responsive Design**: Optimized for all device sizes
-- **Performance Optimized**: Local images, SSR, and static generation
-- **Professional Positioning**: Showcases system design and development expertise
+- **Modern Stack**: Next.js 16 App Router, React 19, TypeScript, and Tailwind CSS v4
+- **Refined Editorial Aesthetic**: Warm neutral backgrounds with rich charcoal typography and electric green accents
+- **Interactive Micro-animations**: Framer Motion transitions, floating sparkles, and playful typography
+- **Handwritten Signature**: Dynamic SVG calligraphy animation using Penflow and Brittany Signature font
+- **Collapsible Announcement Ticker**: Marquee header that smoothly collapses on scroll
+- **Morphing Mobile Navigation**: Fluid overlay menu with responsive animations
+- **Auto-Scrolling Showcase**: Smooth Embla carousel featuring GitHub works and experiments
+- **Selected Case Studies**: Alternating layout with rich image zoom reveals and hover interactions
+- **Analytics & Insights**: Integrated Vercel Analytics and Speed Insights
 
 ## 🚀 Tech Stack
 
-### Frontend
-- **Framework**: Next.js 15.3.5 with App Router
-- **Language**: TypeScript 5.0+
-- **Styling**: Tailwind CSS with custom properties
-- **UI Components**: Radix UI, Headless UI, ShadCN-style components
-- **Icons**: Lucide Icons
-- **Animations**: Framer Motion, Three.js
-- **Fonts**: Inter & JetBrains Mono via Google Fonts
+### Frontend & Core
+- **Framework**: Next.js 16.1.2 with App Router & Turbopack
+- **Language**: TypeScript 5
+- **UI Library**: React 19.2.3
+- **Styling**: Tailwind CSS v4 (`@tailwindcss/postcss`)
+- **Animation & Motion**: Framer Motion 12, Embla Carousel (`embla-carousel-auto-scroll`), Penflow
+- **UI Components**: Radix UI primitives, Lucide Icons, Sonner
+- **Typography**: Inter, Playfair Display, Dancing Script, Brittany Signature
 
-### Development Tools
-- **Build Tool**: Turbopack (Next.js)
-- **Linting**: ESLint with Next.js config
-- **Package Manager**: npm/yarn/pnpm/bun support
-- **Post-processing**: PostCSS, Autoprefixer
+### Monitoring & Analytics
+- `@vercel/analytics`
+- `@vercel/speed-insights`
 
-## 🎨 Color Scheme
+## 🎨 Color Palette
 
 ```css
-/* Custom Color Palette */
---color-teal: #4FB3B3      /* Primary accent */
---color-golden: #EEAA11    /* Secondary accent */
---color-magenta: #BB3381   /* Action elements */
---color-purple: #3F1D50    /* Borders & muted */
---color-background: #16141C /* Dark background */
---color-foreground: #E7E4DE /* Light text */
+/* Minimalist Editorial Palette */
+--color-background: #fafafa; /* Warm light background */
+--color-foreground: #242424; /* Deep charcoal text */
+--color-accent:     #75fb4c; /* Electric green accent */
+--color-muted:      #e9e9e9; /* Subtle borders & cards */
 ```
 
 ## 📁 Project Structure
@@ -56,111 +55,84 @@ A modern, high-performance portfolio website showcasing my expertise in system d
 portfolio/
 ├── src/
 │   ├── app/                 # Next.js App Router
-│   │   ├── globals.css      # Global styles & custom properties
-│   │   ├── layout.tsx       # Root layout with metadata
-│   │   └── page.tsx         # Home page
+│   │   ├── globals.css      # Theme variables, typography & base styling
+│   │   ├── layout.tsx       # Root layout with metadata & analytics
+│   │   ├── page.tsx         # Portfolio single-page structure
+│   │   ├── global-error.tsx # Global error boundary
+│   │   └── not-found.tsx    # 404 page
 │   ├── components/          # React components
-│   │   ├── ui/             # Reusable UI components
-│   │   ├── Hero.tsx        # Hero section with matrix effect
-│   │   ├── Navbar.tsx      # Navigation with theme toggle
-│   │   ├── Projects.tsx    # Featured projects showcase
-│   │   ├── Experience.tsx  # Professional journey
-│   │   ├── ContactForm.tsx # Contact form
-│   │   └── Footer.tsx      # Footer with social links
-│   ├── hooks/              # Custom React hooks
-│   └── lib/                # Utility functions
-├── public/                 # Static assets
-│   ├── pfp.jpg            # Profile picture (favicon)
-│   ├── getsippar.png      # Project screenshots
-│   ├── fuelcalculator.png
-│   ├── voicediary.png
-│   └── resume.pdf
+│   │   ├── Navbar.tsx       # Header with announcement ticker & mobile navigation
+│   │   ├── Hero.tsx         # Hero section with statement typography & sparkles
+│   │   ├── Projects.tsx     # Featured selected case studies
+│   │   ├── SecondaryProjects.tsx # Auto-scrolling carousel for GitHub projects
+│   │   ├── About.tsx        # Bio, credentials, and animated signature
+│   │   ├── Footer.tsx       # Large CTA and social links
+│   │   └── ui/              # Reusable UI component library (Radix + Tailwind)
+│   ├── hooks/               # Custom React hooks (use-mobile, etc.)
+│   └── lib/                 # Utility functions
+├── public/                  # Static assets
+│   ├── fonts/               # BrittanySignature font for Penflow
+│   ├── images/projects/     # Case study screenshots
+│   ├── pfp.png              # Profile avatar / favicon
+│   └── resume.pdf           # Curriculum Vitae
 └── ...
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
-- npm/yarn/pnpm/bun
+- Node.js 18+ (or Bun 1.x / pnpm 9+)
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/bravian1/portfolio.git
-   cd portfolio
-   ```
+```bash
+git clone https://github.com/bravian1/portfolio.git
+cd portfolio
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   # or
-   bun install
-   ```
+# Install dependencies (using your preferred package manager)
+npm install
+# or
+bun install
+# or
+pnpm install
+```
 
-3. **Run development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
-   ```
+### Running Development Server
 
-4. **Open in browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+```bash
+npm run dev
+# or
+bun run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Build for Production
 
 ```bash
-# Build the application
 npm run build
-
-# Start production server
 npm run start
-
-# Run linting
-npm run lint
 ```
-
-## 🌐 Deployment
-
-This portfolio is optimized for deployment on **Vercel** with zero configuration:
-
-1. Connect your GitHub repository to Vercel
-2. Deploy automatically on every push to main branch
-3. Enjoy automatic SSL, CDN, and performance optimizations
-
-Alternatively, deploy to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- Railway
-- DigitalOcean App Platform
 
 ## 📱 Featured Projects
 
-- **[Sippar](https://getsippar.com)** - FinTech platform for workflow automation and financial tracking
-- **[Fuel Calculator](https://fuel-bravian11048-6tzwyf5o.leapcell.dev/)** - Advanced tool for fuel efficiency calculations
-- **[VoiceDiary.xyz](https://voicediary.xyz)** - AI-powered audio diary with insights
+- **[Fuel Calc](https://fuelcalc.xyz)** - Automotive performance & fuel efficiency calculator
+- **[WebMaker Agency](https://webmaker-chi.vercel.app)** - Modern creative web agency with high-conversion landing pages
+- **[PassAfrika](https://passafrika.xyz)** - Secure blockchain event ticketing platform
+- **[Medicare Hospital](https://hospital-portfolio-six.vercel.app)** - Comprehensive healthcare scheduling and patient care portal
+- **[Sippar](https://getsippar.com)** - Organizational petty cash management and workflow optimization platform
+- **[Bet Agent](https://github.com/bravian1/bet-agent)** - AI-powered sports betting analysis and automation
+- **[Textblitz](https://github.com/bravian1/Textblitz)** - High-performance text processing and analysis tool
+- **[Gemini CLI Server](https://github.com/bravian1/gemini_cli_server)** - Local server for interacting with Google Gemini AI models
 
 ## 🤝 Connect
 
-- **LinkedIn**: [Bravian Nyatoro](https://www.linkedin.com/in/bravian-nyatoro-0576021b0/)
+- **Location**: Nairobi, Kenya • Available Remotely
+- **LinkedIn**: [Bravian Nyatoro](https://www.linkedin.com/in/nyatorobravian/)
 - **GitHub**: [@bravian1](https://github.com/bravian1)
-- **Twitter**: [@bravke1](https://twitter.com/bravke1)
-- **TikTok**: [@brav0016](https://www.tiktok.com/@brav0016)
+- **Twitter / X**: [@bravke1](https://twitter.com/bravke1)
+- **Email**: [nyatorobravian@gmail.com](mailto:nyatorobravian@gmail.com)
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Built with ❤️ and lots of ☕ by Bravian Nyatoro**
