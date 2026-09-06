@@ -2,8 +2,8 @@
 
 > Fullstack Developer & AI Engineer / System Designer
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.1.2-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=flat&logo=react)](https://react.dev/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0+-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat&logo=vercel)](https://vercel.com/)
@@ -27,9 +27,9 @@ A modern, high-performance personal portfolio showcasing full-stack development,
 ## 🚀 Tech Stack
 
 ### Frontend & Core
-- **Framework**: Next.js 16.1.2 with App Router & Turbopack
+- **Framework**: Next.js 16.3.4 with App Router & Turbopack
 - **Language**: TypeScript 5
-- **UI Library**: React 19.2.3
+- **UI Library**: React 19.2.8
 - **Styling**: Tailwind CSS v4 (`@tailwindcss/postcss`)
 - **Animation & Motion**: Framer Motion 12, Embla Carousel (`embla-carousel-auto-scroll`), Penflow
 - **UI Components**: Radix UI primitives, Lucide Icons, Sonner
