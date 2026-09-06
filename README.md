@@ -125,6 +125,7 @@ npm run start
 - **[PassAfrika](https://passafrika.xyz)** - Secure blockchain event ticketing platform
 - **[Medicare Hospital](https://hospital-portfolio-six.vercel.app)** - Comprehensive healthcare scheduling and patient care portal
 - **[Baobab POS](https://baobab-pos.co.ke)** - Offline-first Point of Sale and inventory platform for African SMEs
+- **[Markdocs](https://github.com/bravian1/markdocs)** - Google Docs-style editor for plain markdown files with live preview and drawing
 - **[Bet Agent](https://github.com/bravian1/bet-agent)** - AI-powered sports betting analysis and automation
 - **[Textblitz](https://github.com/bravian1/Textblitz)** - High-performance text processing and analysis tool
 - **[Gemini CLI Server](https://github.com/bravian1/gemini_cli_server)** - Local server for interacting with Google Gemini AI models

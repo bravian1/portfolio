@@ -40,6 +40,13 @@ const secondaryProjects: SecondaryProject[] = [
     },
 
     {
+        title: "Markdocs",
+        description: "Google Docs-style collaborative editor for plain markdown files with live preview, math, and drawing.",
+        url: "https://github.com/bravian1/markdocs",
+        category: "Developer Tools",
+        color: "bg-amber-500/10",
+    },
+    {
         title: "Baobab POS",
         description: "An offline-first Point of Sale for African SMEs. Record sales, track inventory, and sync automatically.",
         url: "https://baobab-pos.co.ke",
