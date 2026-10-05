@@ -40,14 +40,6 @@ const projects: readonly Project[] = [
         image: "/images/projects/webmaker.png"
     },
     {
-        name: "PassAfrika",
-        description: "A secure blockchain ticketing platform ensuring tamper-proof and verifiable event access. Revolutionizing event security in Africa.",
-        link: "https://passafrika.xyz",
-        category: "Web3 Platform",
-        year: "2024",
-        image: "/images/projects/passafrika.png"
-    },
-    {
         name: "Medicare Hospital",
         description: "A comprehensive healthcare portal featuring appointment booking and service showcases. Bridging the gap between patients and care.",
         link: "https://hospital-portfolio-six.vercel.app",

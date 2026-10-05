@@ -120,9 +120,9 @@ npm run start
 
 ## 📱 Featured Projects
 
-- **[Fuel Calc](https://fuelcalc.xyz)** - Automotive performance & fuel efficiency calculator
+- **[SOS Real Estate](https://sosrealestates.com)** - Verified property marketplace and brokerage across East Africa
+- **[Joyelle](https://joyelle.co.ke)** - Luxury hair and beauty e-commerce destination in Kenya
 - **[WebMaker Agency](https://webmaker-chi.vercel.app)** - Modern creative web agency with high-conversion landing pages
-- **[PassAfrika](https://passafrika.xyz)** - Secure blockchain event ticketing platform
 - **[Medicare Hospital](https://hospital-portfolio-six.vercel.app)** - Comprehensive healthcare scheduling and patient care portal
 - **[Baobab POS](https://baobab-pos.co.ke)** - Offline-first Point of Sale and inventory platform for African SMEs
 - **[Markdocs](https://github.com/bravian1/markdocs)** - Google Docs-style editor for plain markdown files with live preview and drawing
@@ -135,7 +135,7 @@ npm run start
 - **Location**: Nairobi, Kenya • Available Remotely
 - **LinkedIn**: [Bravian Nyatoro](https://www.linkedin.com/in/nyatorobravian/)
 - **GitHub**: [@bravian1](https://github.com/bravian1)
-- **Twitter / X**: [@bravke1](https://twitter.com/bravke1)
+- **TikTok**: [@bravke1](https://www.tiktok.com/@bravke1)
 - **Email**: [nyatorobravian@gmail.com](mailto:nyatorobravian@gmail.com)
 
 ## 📄 License
