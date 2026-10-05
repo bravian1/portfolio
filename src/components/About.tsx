@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
+import { EASE_OUT } from "@/lib/motion";
 
 const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), {
     ssr: false
@@ -12,17 +13,22 @@ const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), 
 export default function About() {
     const [playheadKey, setPlayheadKey] = useState(0);
     const signatureRef = useRef(null);
-    const isSignatureInView = useInView(signatureRef, { once: true, margin: "-100px" });
+    const isSignatureInView = useInView(signatureRef, { once: true, margin: "-40px" });
+    const reduce = useReducedMotion();
 
     return (
         <section id="about" className="py-24 border-t border-foreground/5">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
                 {/* Image Section - aligned to the start of the first paragraph */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    initial={{
+                        opacity: 0,
+                        scale: reduce ? 1 : 0.98,
+                        y: reduce ? 0 : 8
+                    }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={EASE_OUT}
                     className="relative group shrink-0 mx-auto lg:mx-0 lg:mt-[5.25rem]"
                 >
                     <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-[400px] lg:h-[500px] overflow-hidden rounded-full lg:rounded-[2.5rem] border-4 border-accent/20 lg:border-none shadow-2xl">
@@ -30,10 +36,10 @@ export default function About() {
                             src="/newme.png"
                             alt="Bravian Nyatoro"
                             fill
-                            className="object-cover object-top transition-transform duration-700 group-hover:scale-105 origin-top"
+                            className="object-cover object-top transition-transform duration-300 ease-out group-hover:scale-[1.02] origin-top motion-reduce:transform-none"
                             priority
                         />
-                        <div className="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-500" />
+                        <div className="absolute inset-0 bg-accent/5 group-hover:bg-transparent transition-colors duration-200" />
                     </div>
 
                     {/* Decorative element for desktop */}
@@ -45,9 +51,10 @@ export default function About() {
                 <div className="flex-1 space-y-8 text-center lg:text-left">
                     <header>
                         <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: reduce ? 0 : 8 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            transition={EASE_OUT}
                             className="text-4xl md:text-5xl font-bold tracking-tight mb-2"
                         >
                             A little about <span className="italic-serif text-foreground/80">me.</span>
@@ -55,10 +62,10 @@ export default function About() {
                     </header>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: reduce ? 0 : 8 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true, margin: "-40px" }}
+                        transition={{ ...EASE_OUT, delay: reduce ? 0 : 0.05 }}
                         className="space-y-6"
                     >
                         <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-medium">

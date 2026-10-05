@@ -24,10 +24,10 @@ export default function Footer() {
           </h2>
           <Link
             href="mailto:nyatorobravian@gmail.com"
-            className="group inline-flex items-center gap-4 text-2xl md:text-3xl font-bold border-b-4 border-foreground pb-2 transition-all hover:gap-8"
+            className="group inline-flex items-center gap-4 text-2xl md:text-3xl font-bold border-b-4 border-foreground pb-2 transition-all duration-150 hover:gap-8 active:scale-[0.98] motion-reduce:active:scale-100 motion-reduce:hover:gap-4"
           >
             Start a project
-            <ArrowUpRight className="w-8 h-8 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <ArrowUpRight className="w-8 h-8 transition-transform duration-150 group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
           </Link>
         </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/40 hover:text-foreground transition-colors p-2"
+                className="text-foreground/40 hover:text-foreground active:scale-90 motion-reduce:active:scale-100 transition-all duration-150 p-2"
                 aria-label={social.label}
               >
                 {social.icon}

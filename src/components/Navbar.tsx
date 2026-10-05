@@ -3,13 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import { motion, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion, AnimatePresence, useMotionValueEvent, useScroll, useReducedMotion } from "framer-motion";
+import { EASE_OUT, EASE_IN_OUT, SPRING_LAYOUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [tickerVisible, setTickerVisible] = useState(true);
   const { scrollY } = useScroll();
+  const reduce = useReducedMotion();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
@@ -31,11 +33,11 @@ export default function Navbar() {
           height: tickerVisible ? "auto" : 0,
           opacity: tickerVisible ? 1 : 0,
         }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={EASE_IN_OUT}
         className="bg-foreground text-background text-xs font-bold uppercase tracking-widest relative z-[60] overflow-hidden"
       >
         <div className="py-2">
-          <Marquee speed={30} gradient={false}>
+          <Marquee speed={30} play={!reduce} gradient={false}>
             <span className="mx-8">Now accepting projects</span>
             <span className="mx-8">Available for hire</span>
             <span className="mx-8">Now accepting projects</span>
@@ -49,9 +51,9 @@ export default function Navbar() {
       </motion.div>
 
       {/* Main Navbar */}
-      <nav className={`transition-all duration-300 relative z-[60] ${isScrolled || isMenuOpen ? "bg-background/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"}`}>
+      <nav className={`transition-all duration-200 relative z-[60] ${isScrolled || isMenuOpen ? "bg-background/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"}`}>
         <div className="container mx-auto px-6 lg:px-12 xl:px-16 flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tighter hover:opacity-70 transition-opacity">
+          <Link href="/" className="text-xl font-bold tracking-tighter hover:opacity-70 active:scale-[0.98] motion-reduce:active:scale-100 transition-all duration-150">
             Bravian Nyatoro
           </Link>
 
@@ -61,7 +63,7 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-semibold uppercase tracking-wider hover:opacity-60 transition-opacity"
+                  className="text-sm font-semibold uppercase tracking-wider hover:opacity-60 active:scale-[0.97] motion-reduce:active:scale-100 transition-all duration-150"
                 >
                   {link.label}
                 </Link>
@@ -72,17 +74,20 @@ export default function Navbar() {
               <AnimatePresence>
                 {!isMenuOpen ? (
                   <motion.button
-                    layoutId="menu-container"
+                    layoutId={reduce ? undefined : "menu-container"}
+                    transition={reduce ? { duration: 0 } : SPRING_LAYOUT}
                     key="closed"
                     onClick={() => setIsMenuOpen(true)}
+                    whileTap={reduce ? undefined : TAP_SCALE}
                     className="text-sm font-bold uppercase tracking-wider hover:opacity-60 transition-opacity flex items-center justify-center bg-transparent outline-none relative px-3 py-1.5 -mr-3"
                     style={{ borderRadius: 8 }}
                   >
-                    <motion.span layoutId="menu-text">Menu</motion.span>
+                    <motion.span layoutId={reduce ? undefined : "menu-text"}>Menu</motion.span>
                   </motion.button>
                 ) : (
                   <motion.div
-                    layoutId="menu-container"
+                    layoutId={reduce ? undefined : "menu-container"}
+                    transition={reduce ? { duration: 0 } : SPRING_LAYOUT}
                     key="open"
                     className="absolute top-[-16px] right-[-16px] sm:top-[-24px] sm:right-[-24px] w-[calc(100vw-2rem)] sm:w-[320px] bg-background/95 backdrop-blur-xl border border-foreground/10 shadow-2xl flex flex-col origin-top-right overflow-hidden !z-[100]"
                     style={{ borderRadius: 24 }}
@@ -92,9 +97,9 @@ export default function Navbar() {
                       <span className="text-xs font-bold uppercase tracking-widest text-foreground/40 sm:hidden">Nav</span>
                       <button
                         onClick={() => setIsMenuOpen(false)}
-                        className="text-sm font-bold uppercase tracking-wider hover:opacity-60 transition-opacity outline-none"
+                        className="text-sm font-bold uppercase tracking-wider hover:opacity-60 active:scale-[0.97] motion-reduce:active:scale-100 transition-all duration-150 outline-none"
                       >
-                        <motion.span layoutId="menu-text">Close</motion.span>
+                        <motion.span layoutId={reduce ? undefined : "menu-text"}>Close</motion.span>
                       </button>
                     </div>
 
@@ -102,14 +107,14 @@ export default function Navbar() {
                       {navLinks.map((link, index) => (
                         <motion.div
                           key={link.label}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ opacity: 0, x: reduce ? 0 : -8 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 + index * 0.05 }}
+                          transition={reduce ? { duration: 0.1 } : { ...EASE_OUT, delay: 0.04 + index * 0.03 }}
                         >
                           <Link
                             href={link.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="text-4xl sm:text-5xl font-bold tracking-tighter hover:italic-serif transition-all"
+                            className="text-4xl sm:text-5xl font-bold tracking-tighter hover:italic-serif active:scale-[0.98] motion-reduce:active:scale-100 transition-all duration-150 inline-block"
                           >
                             {link.label}
                           </Link>
@@ -120,12 +125,12 @@ export default function Navbar() {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
+                      transition={reduce ? { duration: 0.1 } : { ...EASE_OUT, delay: 0.12 }}
                       className="bg-foreground/5 p-6 flex gap-6 text-xs font-bold uppercase tracking-widest text-foreground/60 w-full justify-between sm:justify-start"
                     >
-                      <a href="https://github.com/bravian1" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Github</a>
-                      <a href="https://www.linkedin.com/in/nyatorobravian/" target="_blank" rel="noreferrer" className="hover:text-foreground transition-all -translate-y-0.5 text-foreground/90 font-extrabold">LinkedIn</a>
-                      <a href="https://twitter.com/bravke1" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Twitter</a>
+                      <a href="https://github.com/bravian1" target="_blank" rel="noreferrer" className="hover:text-foreground active:scale-[0.97] motion-reduce:active:scale-100 transition-all duration-150">Github</a>
+                      <a href="https://www.linkedin.com/in/nyatorobravian/" target="_blank" rel="noreferrer" className="hover:text-foreground active:scale-[0.97] motion-reduce:active:scale-100 transition-all duration-150 -translate-y-0.5 text-foreground/90 font-extrabold">LinkedIn</a>
+                      <a href="https://twitter.com/bravke1" target="_blank" rel="noreferrer" className="hover:text-foreground active:scale-[0.97] motion-reduce:active:scale-100 transition-all duration-150">Twitter</a>
                     </motion.div>
                   </motion.div>
                 )}

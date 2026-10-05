@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 
 interface SecondaryProject {
     title: string;
@@ -57,6 +58,8 @@ const secondaryProjects: SecondaryProject[] = [
 ];
 
 export default function SecondaryProjects() {
+    const reduce = useReducedMotion();
+
     return (
         <section className="py-24 border-t border-foreground/5">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 mb-16">
@@ -77,41 +80,46 @@ export default function SecondaryProjects() {
                         align: "start",
                         loop: true,
                     }}
-                    plugins={[
-                        AutoScroll({
-                            speed: 1,
-                            stopOnInteraction: false,
-                            stopOnMouseEnter: true,
-                        })
-                    ]}
+                    plugins={
+                        reduce
+                            ? []
+                            : [
+                                AutoScroll({
+                                    speed: 1,
+                                    stopOnInteraction: false,
+                                    stopOnMouseEnter: true,
+                                })
+                            ]
+                    }
                     className="w-full"
                 >
                     <CarouselContent className="-ml-4 md:-ml-8">
                         {secondaryProjects.map((project, index) => (
                             <CarouselItem key={index} className="pl-4 md:pl-8 basis-full sm:basis-1/2 lg:basis-1/3">
                                 <motion.div
-                                    whileHover={{ y: -8 }}
-                                    transition={{ duration: 0.3 }}
+                                    whileHover={reduce ? undefined : { y: -3 }}
+                                    whileTap={reduce ? undefined : TAP_SCALE}
+                                    transition={SPRING_PRESS}
                                     className="h-full"
                                 >
                                     <Link
                                         href={project.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="block h-full group bg-foreground/[0.02] rounded-[2rem] p-6 border border-foreground/5 hover:bg-foreground/[0.04] transition-all"
+                                        className="block h-full group bg-foreground/[0.02] rounded-[2rem] p-6 border border-foreground/5 hover:bg-foreground/[0.04] transition-colors duration-150"
                                     >
-                                        <div className={`aspect-[16/10] rounded-2xl ${project.color} flex items-center justify-center mb-8 overflow-hidden relative shadow-sm group-hover:shadow-md transition-shadow`}>
+                                        <div className={`aspect-[16/10] rounded-2xl ${project.color} flex items-center justify-center mb-8 overflow-hidden relative shadow-sm group-hover:shadow-md transition-shadow duration-200`}>
                                             {project.image ? (
                                                 <Image
                                                     src={project.image}
                                                     alt={project.title}
                                                     fill
-                                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                                                 />
                                             ) : (
-                                                <Github className="w-12 h-12 text-foreground/10 group-hover:scale-110 transition-transform duration-500" />
+                                                <Github className="w-12 h-12 text-foreground/10 group-hover:scale-105 transition-transform duration-200 motion-reduce:transform-none" />
                                             )}
-                                            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
+                                            <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-200" />
                                         </div>
 
                                         <div className="space-y-4">
@@ -119,7 +127,7 @@ export default function SecondaryProjects() {
                                                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/30">
                                                     {project.category}
                                                 </span>
-                                                <ArrowUpRight className="w-4 h-4 text-foreground/20 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                                <ArrowUpRight className="w-4 h-4 text-foreground/20 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transform-none" />
                                             </div>
                                             <h4 className="text-2xl font-bold tracking-tight">
                                                 {project.title}

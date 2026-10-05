@@ -1,8 +1,9 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 
 interface Project {
     name: string;
@@ -15,12 +16,12 @@ interface Project {
 
 const projects: readonly Project[] = [
     {
-        name: "Fuel Calc",
-        description: "A specialized performance calculator for automotive enthusiasts and engineers. Precision modeling for fuel consumption and engine efficiency.",
-        link: "https://fuelcalc.xyz",
-        category: "Performance Tool",
+        name: "SOS Real Estate",
+        description: "Verified property marketplace and brokerage across East Africa. Brokering land and luxury homes end-to-end with verified title deeds and transparent ownership pathways.",
+        link: "https://sosrealestates.com",
+        category: "PropTech Platform",
         year: "2024",
-        image: "/fuelcalc.png"
+        image: "/images/projects/sosrealestates.png"
     },
     {
         name: "WebMaker Agency",
@@ -49,6 +50,8 @@ const projects: readonly Project[] = [
 ];
 
 export default function Projects() {
+    const reduce = useReducedMotion();
+
     return (
         <section id="projects" className="pt-12 pb-24 md:pt-24 md:pb-32">
             <header className="mb-12 md:mb-20">
@@ -61,10 +64,18 @@ export default function Projects() {
                 {projects.map((project, index) => (
                     <motion.div
                         key={project.name}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        initial={{
+                            opacity: 0,
+                            y: reduce ? 0 : 12,
+                            filter: reduce ? "none" : "blur(4px)"
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            filter: "blur(0px)"
+                        }}
+                        viewport={{ once: true, margin: "-40px" }}
+                        transition={EASE_OUT}
                         className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 lg:gap-24 items-center`}
                     >
                         {/* Text Content */}
@@ -89,13 +100,13 @@ export default function Projects() {
                                     href={project.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-lg font-bold group"
+                                    className="inline-flex items-center gap-2 text-lg font-bold group active:scale-[0.98] motion-reduce:active:scale-100 transition-all duration-150"
                                 >
                                     <span className="relative">
                                         View Case Study
-                                        <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-accent transition-transform origin-left scale-x-0 group-hover:scale-x-100"></span>
+                                        <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-accent transition-transform duration-200 origin-left scale-x-0 group-hover:scale-x-100 motion-reduce:transition-none"></span>
                                     </span>
-                                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                    <ArrowUpRight className="w-5 h-5 transition-transform duration-150 group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
                                 </a>
                             </div>
                         </div>
@@ -106,15 +117,15 @@ export default function Projects() {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-muted group shadow-2xl"
+                                className="block relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-muted group shadow-2xl active:scale-[0.99] motion-reduce:active:scale-100 transition-transform duration-150"
                             >
-                                <div className="absolute inset-0 bg-black/5 z-10 group-hover:bg-transparent transition-colors duration-500" />
+                                <div className="absolute inset-0 bg-black/5 z-10 group-hover:bg-transparent transition-colors duration-200" />
                                 <Image
                                     src={project.image}
                                     alt={`Screenshot of ${project.name}`}
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 50vw"
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                                 />
                             </a>
                         </div>
