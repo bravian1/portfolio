@@ -53,7 +53,7 @@ export default function Projects() {
     const reduce = useReducedMotion();
 
     return (
-        <section id="projects" className="pt-12 pb-24 md:pt-24 md:pb-32">
+        <section id="projects" className="pt-12 pb-24 md:pt-24 md:pb-32 scroll-mt-24">
             <header className="mb-12 md:mb-20">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
                     Selected Works

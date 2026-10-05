@@ -11,7 +11,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      <main className="container mx-auto px-6 lg:px-12 xl:px-16 overflow-hidden">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden">
         <Hero />
         <Projects />
         <SecondaryProjects />

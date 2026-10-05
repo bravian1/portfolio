@@ -69,7 +69,7 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <nav className={`transition-all duration-200 relative z-[60] ${isScrolled || isMenuOpen ? "bg-background/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent py-6"}`}>
-        <div className="container mx-auto px-6 lg:px-12 xl:px-16 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 flex items-center justify-between">
           <Link href="/" className="text-xl font-bold tracking-tighter hover:opacity-70 active:scale-[0.98] motion-reduce:active:scale-100 transition-all duration-150">
             Bravian Nyatoro
           </Link>

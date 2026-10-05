@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
@@ -13,12 +13,24 @@ const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), 
 
 export default function About() {
     const [playheadKey, setPlayheadKey] = useState(0);
+    const [signatureSize, setSignatureSize] = useState(40);
     const signatureRef = useRef(null);
     const isSignatureInView = useInView(signatureRef, { once: true, margin: "-40px" });
     const reduce = useReducedMotion();
 
+    useEffect(() => {
+        const updateSize = () => {
+            if (typeof window !== "undefined") {
+                setSignatureSize(window.innerWidth < 640 ? 38 : 58);
+            }
+        };
+        updateSize();
+        window.addEventListener("resize", updateSize);
+        return () => window.removeEventListener("resize", updateSize);
+    }, []);
+
     return (
-        <section id="about" className="py-24 border-t border-foreground/5">
+        <section id="about" className="py-24 border-t border-foreground/5 scroll-mt-24">
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
                 {/* Image Section - aligned to the start of the first paragraph */}
                 <motion.div
@@ -49,7 +61,7 @@ export default function About() {
                 </motion.div>
 
                 {/* Text Section */}
-                <div className="flex-1 space-y-8 text-center lg:text-left">
+                <div className="flex-1 min-w-0 w-full max-w-full space-y-8 text-center lg:text-left">
                     <header>
                         <SplitReveal
                             as="h2"
@@ -78,19 +90,19 @@ export default function About() {
                             Lately, I’ve leaned into <span className="text-foreground font-bold">AI integrations</span>, focusing on how large-scale models can be engineered into robust products. It’s about using AI as a technical lever to solve complex problems that traditional code can’t always reach. By architecting these intelligent engines into the stack, I’m able to build software that feels surprisingly intuitive and powerful—bringing a legitimate sense of magic to the user through smart engineering.
                         </p>
 
-                        <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mx-auto lg:mx-0">
-                            <span className="w-fit whitespace-nowrap px-5 py-2.5 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-[11px] sm:text-[15px] font-bold uppercase tracking-widest flex-shrink-0">
+                        <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-2.5 sm:gap-4 mx-auto lg:mx-0">
+                            <span className="w-fit whitespace-nowrap px-4 py-2 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-xs sm:text-[15px] font-bold uppercase tracking-widest flex-shrink-0">
                                 4+ Years Exp
                             </span>
-                            <span className="w-fit whitespace-nowrap px-5 py-2.5 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-[11px] sm:text-[15px] font-bold uppercase tracking-widest text-accent flex-shrink-0">
+                            <span className="w-fit whitespace-nowrap px-4 py-2 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-xs sm:text-[15px] font-bold uppercase tracking-widest text-accent flex-shrink-0">
                                 AI Integrated
                             </span>
                         </div>
-                        <div className="pt-8 flex justify-center lg:justify-start">
+                        <div className="pt-6 sm:pt-8 flex justify-center lg:justify-start w-full">
                             <div
                                 ref={signatureRef}
                                 data-cuelume-tap=""
-                                className="relative w-full max-w-[350px] sm:max-w-[500px] h-48 sm:h-64 overflow-visible cursor-pointer"
+                                className="relative w-full max-w-[280px] sm:max-w-[450px] lg:max-w-[500px] h-32 sm:h-52 flex items-center justify-center lg:justify-start cursor-pointer select-none [&>canvas]:!max-w-full [&>canvas]:!h-auto [&>canvas]:mx-auto lg:[&>canvas]:mx-0"
                                 onClick={() => setPlayheadKey(prev => prev + 1)}
                                 title="Click to replay signature"
                             >
@@ -98,7 +110,7 @@ export default function About() {
                                     <Penflow
                                         text="Bravian Nyatoro"
                                         fontUrl="/fonts/BrittanySignature.ttf"
-                                        size={58}
+                                        size={signatureSize}
                                         speed={1.2}
                                         quality="balanced"
                                         brushScale={0.072}
