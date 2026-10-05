@@ -24,6 +24,14 @@ const projects: readonly Project[] = [
         image: "/images/projects/sosrealestates.png"
     },
     {
+        name: "Joyelle",
+        description: "A luxury hair and beauty e-commerce destination in Kenya. Curated premium wigs and accessories engineered for effortless shopping and seamless checkout.",
+        link: "https://joyelle.co.ke",
+        category: "E-Commerce",
+        year: "2024",
+        image: "/images/projects/joyelle.png"
+    },
+    {
         name: "WebMaker Agency",
         description: "A premium web agency specialized in custom design, SEO, and high-performance applications. Built with a focus on conversions and modern aesthetics.",
         link: "https://webmaker-chi.vercel.app",
@@ -100,6 +108,7 @@ export default function Projects() {
                                     href={project.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    data-cuelume-navigate=""
                                     className="inline-flex items-center gap-2 text-lg font-bold group active:scale-[0.98] motion-reduce:active:scale-100 transition-all duration-150"
                                 >
                                     <span className="relative">
@@ -117,6 +126,7 @@ export default function Projects() {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-cuelume-navigate=""
                                 className="block relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-muted group shadow-2xl active:scale-[0.99] motion-reduce:active:scale-100 transition-transform duration-150"
                             >
                                 <div className="absolute inset-0 bg-black/5 z-10 group-hover:bg-transparent transition-colors duration-200" />

@@ -50,6 +50,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
+      data-cuelume-tap=""
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />

@@ -106,6 +106,7 @@ export default function SecondaryProjects() {
                                         href={project.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        data-cuelume-navigate=""
                                         className="block h-full group bg-foreground/[0.02] rounded-[2rem] p-6 border border-foreground/5 hover:bg-foreground/[0.04] transition-colors duration-150"
                                     >
                                         <div className={`aspect-[16/10] rounded-2xl ${project.color} flex items-center justify-center mb-8 overflow-hidden relative shadow-sm group-hover:shadow-md transition-shadow duration-200`}>

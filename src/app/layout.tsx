@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import SoundProvider from "@/components/SoundProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#fafafa" />
       </head>
       <body className="antialiased">
+        <SoundProvider />
         {children}
         <SpeedInsights />
         <Analytics />

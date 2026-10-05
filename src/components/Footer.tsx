@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { IconBrandTiktok } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -9,7 +10,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: <Github className="w-5 h-5" />, label: "GitHub", url: "https://github.com/bravian1" },
     { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", url: "https://www.linkedin.com/in/nyatorobravian/" },
-    { icon: <Twitter className="w-5 h-5" />, label: "Twitter", url: "https://twitter.com/bravke1" },
+    { icon: <IconBrandTiktok className="w-5 h-5" stroke={2} />, label: "TikTok", url: "https://www.tiktok.com/@bravke1" },
     { icon: <Mail className="w-5 h-5" />, label: "Email", url: "mailto:nyatorobravian@gmail.com" }
   ];
 
@@ -24,6 +25,7 @@ export default function Footer() {
           </h2>
           <Link
             href="mailto:nyatorobravian@gmail.com"
+            data-cuelume-tap=""
             className="group inline-flex items-center gap-4 text-2xl md:text-3xl font-bold border-b-4 border-foreground pb-2 transition-all duration-150 hover:gap-8 active:scale-[0.98] motion-reduce:active:scale-100 motion-reduce:hover:gap-4"
           >
             Start a project
@@ -44,6 +46,8 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-cuelume-tap=""
+                data-cuelume-emphasis="subtle"
                 className="text-foreground/40 hover:text-foreground active:scale-90 motion-reduce:active:scale-100 transition-all duration-150 p-2"
                 aria-label={social.label}
               >
