@@ -5,6 +5,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { EASE_OUT } from "@/lib/motion";
+import { SplitReveal } from "@/components/ui/SplitReveal";
 
 const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), {
     ssr: false
@@ -50,15 +51,12 @@ export default function About() {
                 {/* Text Section */}
                 <div className="flex-1 space-y-8 text-center lg:text-left">
                     <header>
-                        <motion.h2
-                            initial={{ opacity: 0, y: reduce ? 0 : 8 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-40px" }}
-                            transition={EASE_OUT}
+                        <SplitReveal
+                            as="h2"
                             className="text-4xl md:text-5xl font-bold tracking-tight mb-2"
                         >
                             A little about <span className="italic-serif text-foreground/80">me.</span>
-                        </motion.h2>
+                        </SplitReveal>
                     </header>
 
                     <motion.div

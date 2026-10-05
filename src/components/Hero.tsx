@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
+import { SplitReveal } from "@/components/ui/SplitReveal";
 
 export default function Hero() {
     const reduce = useReducedMotion();
@@ -23,11 +24,13 @@ export default function Hero() {
                     </span>
                 </motion.div>
 
-                <motion.h1
-                    initial={{ opacity: 0, y: reduce ? 0 : 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ ...EASE_OUT, delay: reduce ? 0 : 0.05 }}
+                <SplitReveal
+                    as="h1"
                     className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight max-w-5xl mb-8 md:mb-12"
+                    duration={700}
+                    stagger={70}
+                    delay={60}
+                    inView={false}
                 >
                     Fullstack Dev & <br />
                     AI Engineer helping <br />
@@ -36,6 +39,7 @@ export default function Hero() {
                         <span className="playful-italic text-foreground/90 relative z-10">life.</span>
                         {/* AI Sparkles - gated behind reduced motion preferences */}
                         <motion.span
+                            data-no-split=""
                             initial={{ scale: reduce ? 1 : 0, opacity: reduce ? 0.8 : 0 }}
                             animate={
                                 reduce
@@ -61,6 +65,7 @@ export default function Hero() {
                             ✨
                         </motion.span>
                         <motion.span
+                            data-no-split=""
                             initial={{ scale: reduce ? 1 : 0, opacity: reduce ? 0.7 : 0 }}
                             animate={
                                 reduce
@@ -87,7 +92,7 @@ export default function Hero() {
                             ✨
                         </motion.span>
                     </span>
-                </motion.h1>
+                </SplitReveal>
 
                 <motion.div
                     initial={{ opacity: 0, y: reduce ? 0 : 8 }}

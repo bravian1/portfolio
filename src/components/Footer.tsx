@@ -3,6 +3,7 @@
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { IconBrandTiktok } from "@tabler/icons-react";
 import Link from "next/link";
+import { SplitReveal } from "@/components/ui/SplitReveal";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,10 +20,14 @@ export default function Footer() {
       <div className="container mx-auto px-6 lg:px-12 xl:px-16 text-center lg:text-left">
         {/* Large CTA Section */}
         <div className="mb-32">
-          <h2 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-12">
+          <SplitReveal
+            as="h2"
+            className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-12"
+            stagger={80}
+          >
             Let&apos;s build <br />
             <span className="italic-serif text-foreground/80">something</span> great.
-          </h2>
+          </SplitReveal>
           <Link
             href="mailto:nyatorobravian@gmail.com"
             data-cuelume-tap=""

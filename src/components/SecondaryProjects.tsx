@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
+import { SplitReveal } from "@/components/ui/SplitReveal";
 
 interface SecondaryProject {
     title: string;
@@ -67,10 +68,10 @@ export default function SecondaryProjects() {
                     <h2 className="text-4xl font-bold tracking-tight">Need more?</h2>
                 </div>
                 <div className="lg:w-2/3">
-                    <h3 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                    <SplitReveal as="h3" className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
                         Check my recent works <br />
                         from <span className="italic-serif text-foreground/80">GitHub.</span>
-                    </h3>
+                    </SplitReveal>
                 </div>
             </div>
 
