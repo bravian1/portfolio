@@ -7,17 +7,12 @@ import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 import { SplitReveal } from "@/components/ui/SplitReveal";
 import { useSound } from "@/context/SoundContext";
-import { toast } from "sonner";
-
 export default function Hero() {
     const reduce = useReducedMotion();
     const { playCue } = useSound();
 
     const handleSparkleClick = () => {
         playCue("ready", { theme: "bubble", emphasis: "strong" });
-        toast("✨ Live Sound Synthesized", {
-            description: "Built with Cuelume — pure Web Audio, zero recordings.",
-        });
     };
 
     return (

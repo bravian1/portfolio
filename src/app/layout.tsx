@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import SoundProvider from "@/components/SoundProvider";
-import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +31,6 @@ export default function RootLayout({
         <SoundProvider>
           {children}
         </SoundProvider>
-        <Toaster position="bottom-right" />
         <SpeedInsights />
         <Analytics />
       </body>

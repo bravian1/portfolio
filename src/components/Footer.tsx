@@ -5,20 +5,13 @@ import { IconBrandTiktok } from "@tabler/icons-react";
 import Link from "next/link";
 import { SplitReveal } from "@/components/ui/SplitReveal";
 import { useSound } from "@/context/SoundContext";
-import { toast } from "sonner";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { playCue } = useSound();
 
-  const handleStartProject = async () => {
+  const handleStartProject = () => {
     playCue("success", { emphasis: "strong" });
-    try {
-      await navigator.clipboard.writeText("nyatorobravian@gmail.com");
-      toast.success("Email copied to clipboard", {
-        description: "nyatorobravian@gmail.com — opening mail client...",
-      });
-    } catch {}
   };
 
   const socialLinks = [

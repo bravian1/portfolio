@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import SoundControl from "@/components/SoundControl";
+import { Volume2, VolumeX } from "lucide-react";
+import { useSound } from "@/context/SoundContext";
 import { motion, AnimatePresence, useMotionValueEvent, useScroll, useReducedMotion } from "framer-motion";
 import { EASE_OUT, EASE_IN_OUT, SPRING_LAYOUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 
@@ -11,6 +12,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [tickerVisible, setTickerVisible] = useState(true);
+  const { enabled, toggleEnabled } = useSound();
   const { scrollY } = useScroll();
   const reduce = useReducedMotion();
 
@@ -71,11 +73,29 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <SoundControl />
+              <button
+                type="button"
+                onClick={toggleEnabled}
+                data-cuelume-toggle=""
+                title={enabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
+                aria-label={enabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
+                className="p-2 rounded-full hover:bg-foreground/5 text-foreground/60 hover:text-foreground active:scale-95 transition-all outline-none"
+              >
+                {enabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4 opacity-40" />}
+              </button>
             </div>
 
             <div className="flex items-center gap-2 md:hidden">
-              <SoundControl />
+              <button
+                type="button"
+                onClick={toggleEnabled}
+                data-cuelume-toggle=""
+                title={enabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
+                aria-label={enabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
+                className="p-2 rounded-full hover:bg-foreground/5 text-foreground/60 hover:text-foreground active:scale-95 transition-all outline-none"
+              >
+                {enabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4 opacity-40" />}
+              </button>
 
               <div className="relative z-50">
                 <AnimatePresence>
