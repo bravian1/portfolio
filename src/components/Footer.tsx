@@ -4,9 +4,22 @@ import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { IconBrandTiktok } from "@tabler/icons-react";
 import Link from "next/link";
 import { SplitReveal } from "@/components/ui/SplitReveal";
+import { useSound } from "@/context/SoundContext";
+import { toast } from "sonner";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { playCue } = useSound();
+
+  const handleStartProject = async () => {
+    playCue("success", { emphasis: "strong" });
+    try {
+      await navigator.clipboard.writeText("nyatorobravian@gmail.com");
+      toast.success("Email copied to clipboard", {
+        description: "nyatorobravian@gmail.com — opening mail client...",
+      });
+    } catch {}
+  };
 
   const socialLinks = [
     { icon: <Github className="w-5 h-5" />, label: "GitHub", url: "https://github.com/bravian1" },
@@ -30,7 +43,9 @@ export default function Footer() {
           </SplitReveal>
           <Link
             href="mailto:nyatorobravian@gmail.com"
+            onClick={handleStartProject}
             data-cuelume-tap=""
+            data-cuelume-emphasis="strong"
             className="group inline-flex items-center gap-4 text-2xl md:text-3xl font-bold border-b-4 border-foreground pb-2 transition-all duration-150 hover:gap-8 active:scale-[0.98] motion-reduce:active:scale-100 motion-reduce:hover:gap-4"
           >
             Start a project

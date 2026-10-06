@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import { Volume2, VolumeX } from "lucide-react";
-import { setEnabled } from "cuelume";
+import SoundControl from "@/components/SoundControl";
 import { motion, AnimatePresence, useMotionValueEvent, useScroll, useReducedMotion } from "framer-motion";
 import { EASE_OUT, EASE_IN_OUT, SPRING_LAYOUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 
@@ -12,23 +11,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [tickerVisible, setTickerVisible] = useState(true);
-  const [soundEnabled, setSoundEnabled] = useState(true);
   const { scrollY } = useScroll();
   const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const saved = localStorage.getItem("portfolio-sound-enabled");
-    if (saved !== null) {
-      setSoundEnabled(saved === "true");
-    }
-  }, []);
-
-  const toggleSound = () => {
-    const next = !soundEnabled;
-    setSoundEnabled(next);
-    setEnabled(next);
-    localStorage.setItem("portfolio-sound-enabled", String(next));
-  };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 20);
@@ -87,29 +71,11 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              <button
-                type="button"
-                onClick={toggleSound}
-                data-cuelume-toggle=""
-                title={soundEnabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
-                aria-label={soundEnabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
-                className="p-2 rounded-full hover:bg-foreground/5 text-foreground/60 hover:text-foreground active:scale-95 transition-all outline-none"
-              >
-                {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4 opacity-40" />}
-              </button>
+              <SoundControl />
             </div>
 
             <div className="flex items-center gap-2 md:hidden">
-              <button
-                type="button"
-                onClick={toggleSound}
-                data-cuelume-toggle=""
-                title={soundEnabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
-                aria-label={soundEnabled ? "Mute interaction sounds" : "Unmute interaction sounds"}
-                className="p-2 rounded-full hover:bg-foreground/5 text-foreground/60 hover:text-foreground active:scale-95 transition-all outline-none"
-              >
-                {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4 opacity-40" />}
-              </button>
+              <SoundControl />
 
               <div className="relative z-50">
                 <AnimatePresence>

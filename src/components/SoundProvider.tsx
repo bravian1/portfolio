@@ -1,16 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { bind, setEnabled } from "cuelume";
+import { SoundProvider as Provider } from "@/context/SoundContext";
 
-export default function SoundProvider() {
-  useEffect(() => {
-    const saved = localStorage.getItem("portfolio-sound-enabled");
-    if (saved !== null) {
-      setEnabled(saved === "true");
-    }
-    bind();
-  }, []);
-
-  return null;
+export default function SoundProvider({ children }: { children?: React.ReactNode }) {
+  return <Provider>{children}</Provider>;
 }

@@ -6,6 +6,7 @@ import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { EASE_OUT } from "@/lib/motion";
 import { SplitReveal } from "@/components/ui/SplitReveal";
+import { useSound } from "@/context/SoundContext";
 
 const Penflow = dynamic(() => import('penflow/react').then(mod => mod.Penflow), {
     ssr: false
@@ -17,6 +18,7 @@ export default function About() {
     const signatureRef = useRef(null);
     const isSignatureInView = useInView(signatureRef, { once: true, margin: "-40px" });
     const reduce = useReducedMotion();
+    const { playCue } = useSound();
 
     useEffect(() => {
         const updateSize = () => {
@@ -91,19 +93,21 @@ export default function About() {
                         </p>
 
                         <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-2.5 sm:gap-4 mx-auto lg:mx-0">
-                            <span className="w-fit whitespace-nowrap px-4 py-2 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-xs sm:text-[15px] font-bold uppercase tracking-widest flex-shrink-0">
+                            <span data-cuelume-tap="" data-cuelume-emphasis="subtle" className="w-fit whitespace-nowrap px-4 py-2 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-xs sm:text-[15px] font-bold uppercase tracking-widest flex-shrink-0 cursor-default">
                                 4+ Years Exp
                             </span>
-                            <span className="w-fit whitespace-nowrap px-4 py-2 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-xs sm:text-[15px] font-bold uppercase tracking-widest text-accent flex-shrink-0">
+                            <span data-cuelume-tap="" data-cuelume-emphasis="subtle" className="w-fit whitespace-nowrap px-4 py-2 sm:px-7 sm:py-3 rounded-full bg-foreground/5 border border-foreground/10 text-xs sm:text-[15px] font-bold uppercase tracking-widest text-accent flex-shrink-0 cursor-default">
                                 AI Integrated
                             </span>
                         </div>
                         <div className="pt-6 sm:pt-8 flex justify-center lg:justify-start w-full">
                             <div
                                 ref={signatureRef}
-                                data-cuelume-tap=""
                                 className="relative w-full max-w-[280px] sm:max-w-[450px] lg:max-w-[500px] h-32 sm:h-52 flex items-center justify-center lg:justify-start cursor-pointer select-none [&>canvas]:!max-w-full [&>canvas]:!h-auto [&>canvas]:mx-auto lg:[&>canvas]:mx-0"
-                                onClick={() => setPlayheadKey(prev => prev + 1)}
+                                onClick={() => {
+                                    setPlayheadKey(prev => prev + 1);
+                                    playCue("tap", { emphasis: "strong" });
+                                }}
                                 title="Click to replay signature"
                             >
                                 {isSignatureInView && (

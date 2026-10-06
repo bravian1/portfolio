@@ -1,13 +1,15 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github, ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
 import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 import { SplitReveal } from "@/components/ui/SplitReveal";
+import { useSound } from "@/context/SoundContext";
 
 interface SecondaryProject {
     title: string;
@@ -60,12 +62,44 @@ const secondaryProjects: SecondaryProject[] = [
 
 export default function SecondaryProjects() {
     const reduce = useReducedMotion();
+    const { playCue } = useSound();
+    const [api, setApi] = useState<CarouselApi>();
+
+    const handlePrev = () => {
+        api?.scrollPrev();
+        playCue("select", { direction: "back" });
+    };
+
+    const handleNext = () => {
+        api?.scrollNext();
+        playCue("select", { direction: "forward" });
+    };
 
     return (
         <section className="py-24 border-t border-foreground/5">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 mb-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 mb-16 items-start lg:items-end justify-between">
                 <div className="lg:w-1/3">
-                    <h2 className="text-4xl font-bold tracking-tight">Need more?</h2>
+                    <h2 className="text-4xl font-bold tracking-tight mb-4">Need more?</h2>
+                    <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={handlePrev}
+                            aria-label="Previous slide"
+                            title="Previous slide"
+                            className="p-2.5 rounded-full border border-foreground/10 bg-foreground/[0.02] hover:bg-foreground/[0.06] active:scale-90 transition-all text-foreground/70 hover:text-foreground"
+                        >
+                            <ArrowLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleNext}
+                            aria-label="Next slide"
+                            title="Next slide"
+                            className="p-2.5 rounded-full border border-foreground/10 bg-foreground/[0.02] hover:bg-foreground/[0.06] active:scale-90 transition-all text-foreground/70 hover:text-foreground"
+                        >
+                            <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </div>
                 </div>
                 <div className="lg:w-2/3">
                     <SplitReveal as="h3" className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
@@ -77,6 +111,7 @@ export default function SecondaryProjects() {
 
             <div className="relative">
                 <Carousel
+                    setApi={setApi}
                     opts={{
                         align: "start",
                         loop: true,

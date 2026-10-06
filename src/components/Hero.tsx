@@ -6,9 +6,19 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT, SPRING_PRESS, TAP_SCALE } from "@/lib/motion";
 import { SplitReveal } from "@/components/ui/SplitReveal";
+import { useSound } from "@/context/SoundContext";
+import { toast } from "sonner";
 
 export default function Hero() {
     const reduce = useReducedMotion();
+    const { playCue } = useSound();
+
+    const handleSparkleClick = () => {
+        playCue("ready", { theme: "bubble", emphasis: "strong" });
+        toast("✨ Live Sound Synthesized", {
+            description: "Built with Cuelume — pure Web Audio, zero recordings.",
+        });
+    };
 
     return (
         <section className="relative min-h-[75vh] md:min-h-[85vh] flex flex-col items-start justify-center pt-32 pb-12 md:pt-20 md:pb-20">
@@ -35,8 +45,12 @@ export default function Hero() {
                     Fullstack Dev & <br />
                     AI Engineer helping <br />
                     bring your ideas <br />
-                    to <span className="relative inline-block">
-                        <span className="playful-italic text-foreground/90 relative z-10">life.</span>
+                    to <span
+                        onClick={handleSparkleClick}
+                        className="relative inline-block cursor-pointer select-none group/sparkle"
+                        title="Click to play live Cuelume sparkle cue ✨"
+                    >
+                        <span className="playful-italic text-foreground/90 relative z-10 transition-transform duration-150 group-hover/sparkle:scale-105 inline-block">life.</span>
                         {/* AI Sparkles - gated behind reduced motion preferences */}
                         <motion.span
                             data-no-split=""
@@ -60,7 +74,7 @@ export default function Hero() {
                                         ease: "easeInOut"
                                     }
                             }
-                            className="absolute -top-1 -right-2 text-2xl pointer-events-none select-none"
+                            className="absolute -top-1 -right-2 text-2xl select-none"
                         >
                             ✨
                         </motion.span>
@@ -87,7 +101,7 @@ export default function Hero() {
                                         ease: "easeInOut"
                                     }
                             }
-                            className="absolute -bottom-4 -left-6 text-xl pointer-events-none select-none"
+                            className="absolute -bottom-4 -left-6 text-xl select-none"
                         >
                             ✨
                         </motion.span>
@@ -105,7 +119,11 @@ export default function Hero() {
                         transition={SPRING_PRESS}
                     >
                         <Link href="mailto:nyatorobravian@gmail.com">
-                            <Button className="h-12 md:h-14 px-6 md:px-8 text-base bg-foreground text-background hover:bg-foreground/90 rounded-full font-semibold transition-all group">
+                            <Button
+                                data-cuelume-tap=""
+                                data-cuelume-emphasis="strong"
+                                className="h-12 md:h-14 px-6 md:px-8 text-base bg-foreground text-background hover:bg-foreground/90 rounded-full font-semibold transition-all group"
+                            >
                                 Let&apos;s talk about your idea
                                 <ArrowUpRight className="w-5 h-5 ml-2 transition-transform duration-150 group-hover:translate-x-1 group-hover:-translate-y-1 motion-reduce:transform-none" />
                             </Button>
