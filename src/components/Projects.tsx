@@ -16,6 +16,14 @@ interface Project {
 
 const projects: readonly Project[] = [
     {
+        name: "Njerae",
+        description: "An immersive artist site for the Nairobi singer, songwriter and producer. Her story, records and live dates, scored with her own music for a cinematic, sound-first experience.",
+        link: "https://iamnjerae.vercel.app",
+        category: "Artist Website",
+        year: "2026",
+        image: "/images/projects/njerae.png"
+    },
+    {
         name: "SOS Real Estate",
         description: "Verified property marketplace and brokerage across East Africa. Brokering land and luxury homes end-to-end with verified title deeds and transparent ownership pathways.",
         link: "https://sosrealestates.com",
