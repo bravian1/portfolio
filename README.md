@@ -121,6 +121,7 @@ npm run start
 ## 📱 Featured Projects
 
 - **[Njerae](https://iamnjerae.vercel.app)** - Immersive, sound-first artist site for the Nairobi singer, songwriter and producer
+- **[Blood on the Bunge](https://june25th.vercel.app)** - Interactive scrollytelling investigation into the 25 June 2024 killings at Kenya's parliament
 - **[SOS Real Estate](https://sosrealestates.com)** - Verified property marketplace and brokerage across East Africa
 - **[Joyelle](https://joyelle.co.ke)** - Luxury hair and beauty e-commerce destination in Kenya
 - **[WebMaker Agency](https://webmaker-chi.vercel.app)** - Modern creative web agency with high-conversion landing pages

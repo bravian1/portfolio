@@ -24,6 +24,14 @@ const projects: readonly Project[] = [
         image: "/images/projects/njerae.png"
     },
     {
+        name: "Blood on the Bunge",
+        description: "An interactive scrollytelling retelling of BBC Africa Eye's investigation into the killings at Kenya's parliament on 25 June 2024. A live-stream narrative, minute-by-minute timeline and frame-by-frame evidence walkthroughs.",
+        link: "https://june25th.vercel.app",
+        category: "Interactive Journalism",
+        year: "2026",
+        image: "/images/projects/june25th.png"
+    },
+    {
         name: "SOS Real Estate",
         description: "Verified property marketplace and brokerage across East Africa. Brokering land and luxury homes end-to-end with verified title deeds and transparent ownership pathways.",
         link: "https://sosrealestates.com",
